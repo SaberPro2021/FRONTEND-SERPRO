@@ -1,0 +1,42 @@
+<br>
+<mat-card 
+  [ngClass]="{
+    'greenCard': question.earnedPoints == 100 && isEditable === false,
+    'yellowCard': question.earnedPoints < 100 && question.earnedPoints > 0 && isEditable === false,
+    'redCard':  question.earnedPoints <= 0 && isEditable === false
+  }" id="center-card">
+  <mat-card-header>
+    <mat-card-title>Pregunta</mat-card-title>
+    <mat-card-subtitle>Pregunta de seleccion multiple</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <div [innerHtml]="question.statement"></div>
+    <hr>
+    <div>
+      <label *ngIf="isEditable" id="example-radio-group-label"> 
+        Selecciona la respuesta correcta:
+      </label>
+      <br />
+      <br />
+      <mat-radio-group [(ngModel)]="question.selectedAnswer[0]">
+        <div *ngFor="let answer of question.answers">
+          <mat-radio-button [value]="answer" [disabled]="!isEditable">
+            <div [innerHtml]="answer.statement"></div>
+          </mat-radio-button>
+          <br />
+        </div>
+        <br />
+        <div *ngIf="!isEditable">
+          <p>Justificación de la pregunta:</p>
+          <div [innerHtml]="question.feedback"></div>
+        </div>
+        <br />
+      </mat-radio-group>
+      <div class="selectedAnswer" *ngIf="question.selectedAnswer[0]">
+        Su respuesta seleccionada es: 
+        <p [innerHtml]="question.selectedAnswer[0].statement"></p> 
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+<br>

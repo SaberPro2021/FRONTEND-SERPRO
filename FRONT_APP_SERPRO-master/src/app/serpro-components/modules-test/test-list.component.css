@@ -1,0 +1,10 @@
+.list-test-content {
+    max-width: 60%;
+    align-content: center;
+    align-items: center;
+}
+#parent{
+    margin-left: auto;
+    margin-right: auto;
+}
+  

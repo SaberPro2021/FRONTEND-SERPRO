@@ -1,0 +1,31 @@
+.example-card {
+  max-width: 900px;
+  align-content: center;
+  align-items: center;
+
+}
+
+#center-card{
+  margin-left: auto;
+  margin-right: auto;
+}
+.selectedAnswer{
+  color: rgba(0, 0, 0, 0.596);
+  border-style: dashed;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 2%;
+  background-color: rgba(203, 216, 216, 0.253);
+}
+
+.greenCard{
+  background-color: rgba(3, 148, 3, 0.26);
+}
+
+.redCard{
+  background-color: rgba(255, 0, 0, 0.226);
+}
+
+.yellowCard{
+  background-color: rgba(255, 255, 0, 0.164);
+}
