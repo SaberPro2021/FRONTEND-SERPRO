@@ -1,0 +1,18 @@
+
+<mat-card *ngIf = "icfesTest.questions.length > 0" class="example-card" id="center-card">
+
+  <div>
+    <h1>Resultado: {{icfesTest.qtyCorrectQuestions}} de {{icfesTest.questions.length}}</h1>
+  </div>
+
+  <div *ngFor="let question of icfesTest.questions">
+
+    <app-multiple-selection-question [question]="question" [isEditable]="false"></app-multiple-selection-question>
+
+  </div>
+
+</mat-card>
+<div class="buttonBack">
+  <br>
+  <button mat-button routerLink="/listaTests/{{testId}}" class="mat-raised-button" color="primary" id="confirmar"  >Volver  </button>
+</div>

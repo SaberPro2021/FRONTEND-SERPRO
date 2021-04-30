@@ -1,0 +1,7 @@
+.logo {
+    background-image: url('/assets/images/logopoli.png');
+    background-size: 'cover';
+}
+.spacer {
+    flex: 1 1 auto;
+}

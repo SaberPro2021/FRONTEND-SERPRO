@@ -1,0 +1,19 @@
+.example-card {
+  max-width: 800px;
+  align-content: center;
+  align-items: center;
+
+}
+
+#center-card{
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#confirmar{
+  right: 10px;
+}
+
+.buttonBack{
+  margin-left: 5%;
+}
