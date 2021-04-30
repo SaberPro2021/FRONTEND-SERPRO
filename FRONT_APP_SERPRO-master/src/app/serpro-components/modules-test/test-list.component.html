@@ -1,0 +1,30 @@
+<div class="list-test-content" id="parent" >
+  
+  <div *ngFor="let test of tests | async; let nroPrueba = index;">
+    <mat-card>
+      <mat-card-header>
+         <mat-card-title>{{ test.title }} </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+          {{ test.description }}
+      </mat-card-content>
+      <mat-card-actions style="text-align: right">
+        <button mat-raised-button color="primary" [routerLink]="'/test/' + test._id + '/' + moduleId">
+          Tomar el test
+        </button>
+      </mat-card-actions>
+    </mat-card>
+    <br />
+  </div>
+  <mat-card>
+    <mat-card-header>
+       <mat-card-title>Prueba Aleatoria</mat-card-title>
+    </mat-card-header>
+    <mat-card-actions style="text-align: right">
+      <button mat-raised-button color="primary" [routerLink]="'/test/random/' + moduleId" >
+        Tomar el test
+      </button>
+    </mat-card-actions>
+  </mat-card>
+  <br />
+</div>

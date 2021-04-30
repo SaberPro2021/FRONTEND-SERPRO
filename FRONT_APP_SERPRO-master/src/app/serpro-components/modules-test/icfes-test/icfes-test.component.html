@@ -1,0 +1,34 @@
+<mat-card class="example-card" id="center-card">
+
+  <!-- PREGUNTA SELECCION MULTIPLE-->
+  <div *ngIf="currentTest && !testEnded && currentQuestion" >
+    <app-multiple-selection-question *ngIf="currentQuestion.questionType == 'multiple-selection'" [question]="currentQuestion" ></app-multiple-selection-question>
+
+    <br>
+    <div *ngIf="this.currentTest.questions.indexOf(this.currentQuestion) > 0; then activeButton else disableButton "></div>
+    <ng-template #activeButton > <button mat-button (click)="previousAction ()" class="mat-raised-button" color="primary" >ATRAS  </button> </ng-template> 
+    <ng-template #disableButton> <button mat-button #disableButton (click)="previousAction ()" class="mat-raised-button" color="primary" disabled>ATRAS  </button> </ng-template>
+    <button mat-button (click)="nextAction ()" class="mat-raised-button" color="accent"> {{nextAndSend}}</button>
+    <br><br>
+    <mat-progress-bar name="progressBar" mode="determinate" [value]="currentTest.progress" ></mat-progress-bar>
+    <br><br>
+    <div class="alert" *ngIf="alert">
+      <p>¡Olvidaste responder alguna pregunta! - Vuelve y revisa</p>
+    </div>
+  </div>
+
+  <div *ngIf="this.currentTest.questions.length < 1 || this.currentTest.questions.length == null">
+    
+    <h1 class="title"> Lo sentimos, actualmente no tenemos preguntas del modulo</h1>
+    <img class="image" src="../../../../assets/images/QuestionWarning.png"> 
+
+  </div>
+
+  <div *ngIf="testEnded">
+
+    <app-summary-test [icfesTest]="currentTest"></app-summary-test>
+
+  </div>
+
+</mat-card>
+
