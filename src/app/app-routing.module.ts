@@ -8,7 +8,7 @@ import {LoginComponent} from "./login/login.component";
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'listaModulos', pathMatch : 'full'},
+  {path: '', redirectTo: 'login', pathMatch : 'full'},
   {path: 'listaModulos', component: IcfesModulesListComponent},
   {path: 'listaTests/:moduleId', component: TestListComponent},
   {path: 'test/:testId/:moduleId', component: IcfesTestComponent,

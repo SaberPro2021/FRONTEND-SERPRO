@@ -31,7 +31,8 @@ import { HeaderComponent } from './serpro-components/header/header.component';
 //services
 import { QuestionsService } from './services/question.service';
 import { SummaryTestComponent } from './serpro-components/modules-test/summary-test/summary-test.component';
-import { LoginComponent } from './login/login.component'
+import { LoginComponent } from './login/login.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
 
 
 
@@ -60,7 +61,8 @@ import { LoginComponent } from './login/login.component'
     MatProgressSpinnerModule,
     MatTabsModule,
     MatToolbarModule,
-    MatIconModule
+    MatIconModule,
+    NgbModule
   ],
   providers: [QuestionsService],
   bootstrap: [AppComponent]
