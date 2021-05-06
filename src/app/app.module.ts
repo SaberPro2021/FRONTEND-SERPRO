@@ -32,7 +32,8 @@ import { HeaderComponent } from './serpro-components/header/header.component';
 import { QuestionsService } from './services/question.service';
 import { SummaryTestComponent } from './serpro-components/modules-test/summary-test/summary-test.component';
 import { LoginComponent } from './login/login.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProfileComponent } from './serpro-components/profile/profile.component'
 
 
 
@@ -45,7 +46,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
     MultipleSelectionQuestionComponent,
     HeaderComponent,
     SummaryTestComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
