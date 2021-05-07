@@ -5,6 +5,7 @@ import { TestListComponent } from './serpro-components/modules-test/test-list.co
 import { IcfesTestComponent } from './serpro-components/modules-test/icfes-test/icfes-test.component';
 import {SummaryTestComponent} from "./serpro-components/modules-test/summary-test/summary-test.component";
 import {LoginComponent} from "./login/login.component";
+import { ProfileComponent } from "./serpro-components/profile/profile.component";
 
 
 const routes: Routes = [
@@ -12,9 +13,9 @@ const routes: Routes = [
   {path: 'listaModulos', component: IcfesModulesListComponent},
   {path: 'listaTests/:moduleId', component: TestListComponent},
   {path: 'test/:testId/:moduleId', component: IcfesTestComponent,
-    children: [ {path: 'SummaryTest', component: SummaryTestComponent}]
-  },
+    children: [ {path: 'SummaryTest', component: SummaryTestComponent}]},
   {path: 'login' , component: LoginComponent},
+  {path: 'profile' , component:ProfileComponent }
 ];
 
 @NgModule({

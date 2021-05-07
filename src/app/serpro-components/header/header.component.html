@@ -12,8 +12,9 @@
     </button>
     <span style="justify-self: center;"> {{title}} </span>
     <span class="spacer" ></span>
-    <button mat-icon-button >
-      <i class="material-icons">account_circle</i>
+    <button mat-icon-button 
+      [routerLink]="'/profile'">
+        <i class="material-icons">account_circle</i>
     </button>
     <button mat-icon-button >
       <i class="material-icons">logout</i>

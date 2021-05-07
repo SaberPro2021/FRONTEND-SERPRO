@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IcfesModule } from 'src/app/models/module.model';
+import { IcfesTest } from 'src/app/models/test.model';
 
 @Component({
   selector: 'serpro-profile',
@@ -7,7 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
 
-  constructor() { }
+  nombreUsuario:String;
+  correoUsuario:String;
+  module:IcfesModule;
+  sizeTemporal: Number[];
+  constructor() { 
+    this.sizeTemporal = [1,2,3,4,5];
+    this.nombreUsuario = "Intento quemado";
+    this.correoUsuario = "correoTest@gmail.conm";
+  }
 
   ngOnInit(): void {
   }

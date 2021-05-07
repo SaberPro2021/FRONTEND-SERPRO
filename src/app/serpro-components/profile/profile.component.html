@@ -1,1 +1,17 @@
-<p>profile works!</p>
+<div id="parent">
+
+    <div class="cardMaster">
+        <div id="profileTarget">
+            <img src="../../../assets/images/user.png" id="profileImage">
+            <br>
+            <p> {{nombreUsuario}} </p>
+            <p> {{correoUsuario}} </p>
+        </div>
+        <div class="advance">
+            <div *ngFor="let item of sizeTemporal">
+                <serpro-medal></serpro-medal>
+            </div>
+        </div>
+    </div>
+
+</div>

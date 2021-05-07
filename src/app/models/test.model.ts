@@ -5,6 +5,7 @@ export class IcfesTest {
         this.questions = new Array <Question>();
         this.qtyCorrectQuestions = 0;
     }
+    _id?: string;
     title: string;
     description: string;
     progress: number;
