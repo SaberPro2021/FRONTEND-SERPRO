@@ -33,7 +33,8 @@ import { QuestionsService } from './services/question.service';
 import { SummaryTestComponent } from './serpro-components/modules-test/summary-test/summary-test.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ProfileComponent } from './serpro-components/profile/profile.component'
+import { ProfileComponent } from './serpro-components/profile/profile.component';
+import { MedalComponent } from './serpro-components/profile/medal/medal.component'
 
 
 
@@ -47,7 +48,8 @@ import { ProfileComponent } from './serpro-components/profile/profile.component'
     HeaderComponent,
     SummaryTestComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    MedalComponent
   ],
   imports: [
     BrowserModule,
