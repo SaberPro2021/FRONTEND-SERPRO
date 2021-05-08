@@ -34,3 +34,30 @@
     border-radius: 5%;
     padding: 5%;
 }
+
+@media (max-width: 650px) {
+
+    .cardMaster{
+        height: 80%;
+        display: grid;
+        grid-template-columns: 100%;
+    }
+
+    #profileImage{
+        margin-top: 5%;
+        margin-bottom: 15%;
+        height: 200px;
+        width: 200px;
+    }
+
+    #profileTarget{
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 5%;
+        margin-bottom: auto;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    
+}
