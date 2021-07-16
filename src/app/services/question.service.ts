@@ -13,24 +13,24 @@ export class QuestionsService {
   constructor(private http: HttpClient) { }
 
   public getAllModules (): Observable<IcfesModule[]>{
-    return this.http.get <IcfesModule[]> (`${environment.urlQuestionApi}/module`);
+    return this.http.get <IcfesModule[]> (`${environment.urlQuestionApi}/module`,{withCredentials: true});
   }
 
   public getTestsByModuleId (moduleId): Observable<IcfesTest[]> {
-    return this.http.get <IcfesTest[]> (`${environment.urlQuestionApi}/icfesTest/moduleId/${moduleId}`);
+    return this.http.get <IcfesTest[]> (`${environment.urlQuestionApi}/icfesTest/moduleId/${moduleId}`,{withCredentials: true});
   }
   
   public getTestById (testId: string){
     // TODO: UPDATE WHEN BACK SERVICE IS FIXED
-    return this.http.get(`${environment.urlQuestionApi}/icfesTest/${testId}`);
+    return this.http.get(`${environment.urlQuestionApi}/icfesTest/${testId}`,{withCredentials: true});
     //return this.http.get <IcfesTest[]> (`${environment.urlQuestionApi}/icfesTest/`);
   }
 
   public getRandomQuestionsByModuleId (moduleId: string){
-    return this.http.get(`${environment.urlQuestionApi}/question/${moduleId}/${environment.qtyRamdomQuestions}`);
+    return this.http.get(`${environment.urlQuestionApi}/question/${moduleId}/${environment.qtyRamdomQuestions}`,{withCredentials: true});
   }
 
   public getAllQuestion (endpoint: string){
-    return this.http.get(`${environment.urlQuestionApi}/question`);
+    return this.http.get(`${environment.urlQuestionApi}/question`,{withCredentials: true});
   }
 }

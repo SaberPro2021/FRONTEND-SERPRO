@@ -13,7 +13,6 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "proxyConfig": "src/proxy.conf.json",
             "outputPath": "dist/APPSerPro",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -64,7 +63,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "APPSerPro:build"
+            "browserTarget": "APPSerPro:build",
+            "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
