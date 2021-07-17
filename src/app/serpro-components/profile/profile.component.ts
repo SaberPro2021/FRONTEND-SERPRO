@@ -9,14 +9,15 @@ import { IcfesTest } from 'src/app/models/test.model';
 })
 export class ProfileComponent implements OnInit {
 
-  nombreUsuario:String;
-  correoUsuario:String;
+  userName : string;
+  email : string;
   module:IcfesModule;
   sizeTemporal: Number[];
+
   constructor() { 
     this.sizeTemporal = [1,2,3,4,5];
-    this.nombreUsuario = "Intento quemado";
-    this.correoUsuario = "correoTest@gmail.conm";
+    this.userName = sessionStorage.getItem('userNameSession');
+    this.email = sessionStorage.getItem('emailSession');
   }
 
   ngOnInit(): void {
