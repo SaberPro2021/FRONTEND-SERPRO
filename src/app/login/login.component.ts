@@ -21,6 +21,6 @@ export class LoginComponent implements OnInit {
   LoginUser(): void {
     //console.log(this.user.email, this.user.password)
     this.loginService.postLogin(this.user);
-    this.router.navigate(['listaModulos'])
+    //this.router.navigate(['listaModulos'])
   }
 }
