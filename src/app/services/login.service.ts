@@ -25,8 +25,7 @@ export class LoginService {
        response => {
           sessionStorage.setItem('userNameSession',response['userName'])
           sessionStorage.setItem('emailSession',response['email'])
-          //console.log("Hi",response['userName'], "Welcome...");
-          this.router.navigate(['listaModulos'])
+          console.log("Hi",response['userName'], "Welcome...");
           //location.assign( 'listaModulos');
         }, 
         error => {
