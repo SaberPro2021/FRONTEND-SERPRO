@@ -3,7 +3,7 @@
   <!-- PREGUNTA SELECCION MULTIPLE-->
   <div *ngIf="currentTest && !testEnded && currentQuestion" >
     <app-multiple-selection-question *ngIf="currentQuestion.questionType == 'multiple-selection'" [question]="currentQuestion" ></app-multiple-selection-question>
-
+ 
     <br>
     <div *ngIf="this.currentTest.questions.indexOf(this.currentQuestion) > 0; then activeButton else disableButton "></div>
     <ng-template #activeButton > <button mat-button (click)="previousAction ()" class="mat-raised-button" color="primary" >ATRAS  </button> </ng-template> 

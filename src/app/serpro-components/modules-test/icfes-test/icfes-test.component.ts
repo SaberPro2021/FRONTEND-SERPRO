@@ -3,6 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Question } from 'src/app/models/question.model';
 import { IcfesTest } from 'src/app/models/test.model';
 import { QuestionsService } from '../../../services/question.service';
+import { FinalScore } from 'src/app/models/finalScore.model';
+import {GradeService} from '../../../services/grade.service';
+
+
 
 @Component({
   selector: 'app-icfes-test',
@@ -19,14 +23,16 @@ export class IcfesTestComponent implements OnInit {
   nextAndSend: string;
   alert: boolean;
   
-
+  finalScore : FinalScore;
   constructor(
     private questionsService: QuestionsService,
     private route: ActivatedRoute,
+    private gradeService : GradeService
   ) {
     this.questionCount = -1;
     this.loadCurrentTest();
     this.nextAndSend = 'Siguiente';
+    this.finalScore = new FinalScore();
   }
 
   /**
@@ -71,7 +77,7 @@ export class IcfesTestComponent implements OnInit {
       },
       (err) => {},
     );
-  }
+  } 
   nextAction() {
     if (this.questionCount == this.currentTest.questions.length - 2) {
       this.nextAndSend = 'ENVIAR';
@@ -82,6 +88,27 @@ export class IcfesTestComponent implements OnInit {
     } else {
       if(this.verifyAnswers()){
         this.currentTest.calculateQtyCorrectQuestions();
+    
+        const emailSession = sessionStorage.getItem('emailSession');
+        const idTest = this.route.snapshot.params.testId;
+        const idModule = this.route.snapshot.params.moduleId;
+        const finalScore = this.currentTest.qtyCorrectQuestions;
+        const timeTests = "05:00";
+        const date = new Date();
+        console.log("Fechaaaaaaaa -- > " ,date.toString());
+
+        this.finalScore.userId = emailSession;
+        this.finalScore.testId = idTest;
+        this.finalScore.moduleId= idModule;
+        this.finalScore.score = finalScore;
+        this.finalScore.time= timeTests;
+        this.finalScore.date = date.toString();
+       
+        console.log("Objeto -> ",this.finalScore);
+
+        this.gradeService.postScore(this.finalScore);
+
+
         this.testEnded = true;
       }else {
         this.alert = true;
