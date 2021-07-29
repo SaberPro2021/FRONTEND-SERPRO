@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ScoreModel } from '../models/score.model';
+import { FinalScore } from '../models/finalScore.model';
 import { environment } from '../../environments/environment';
 
 @Injectable({
@@ -12,9 +12,9 @@ export class GradeService {
 
   }
 
-  postScore(scoreModel:ScoreModel)  {
+  postScore(finalScore:FinalScore)  {
 
-    return this.http.post(`${environment.urlQuestionApi}/Grade`, scoreModel).subscribe(
+    return this.http.post(`${environment.urlQuestionApi}/Grade`, finalScore).subscribe(
       (response) =>{
         console.log (response);
       },
