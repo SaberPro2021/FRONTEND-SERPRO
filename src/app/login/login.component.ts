@@ -10,17 +10,16 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  user : LoginModel;
+  userCredentials : LoginModel;
   constructor(private loginService : LoginService, private router: Router) {
-    this.user = new LoginModel();
+    this.userCredentials = new LoginModel();
    }
   
   ngOnInit(): void {
   }
 
   LoginUser(): void {
-    //console.log(this.user.email, this.user.password)
-    this.loginService.postLogin(this.user);
-    //this.router.navigate(['listaModulos'])
+    this.loginService.postLogin(this.userCredentials);
+
   }
 }

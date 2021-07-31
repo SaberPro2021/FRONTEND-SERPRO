@@ -1,4 +1,4 @@
-import {Component, Injectable, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { UserSettingsVariablesService } from 'src/app/services/user-settings-variables.service';
 import { LoginService } from 'src/app/services/login.service'
 

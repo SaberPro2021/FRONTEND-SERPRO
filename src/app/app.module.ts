@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 
 // PROJECT COMPONENTS
 import { AppRoutingModule } from './app-routing.module';
@@ -36,8 +36,6 @@ import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileComponent } from './serpro-components/profile/profile.component';
 import { MedalComponent } from './serpro-components/profile/medal/medal.component'
-
-
 
 
 @NgModule({

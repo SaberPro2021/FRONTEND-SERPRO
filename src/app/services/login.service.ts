@@ -16,8 +16,6 @@ export class LoginService {
 
   postLogin(loginModule: LoginModel) {
 
-    console.log("Metodo PostLogin", loginModule.email)
-    //console.log(loginModule.password)
     return this.http.post(`${environment.urlQuestionApi}/login`, loginModule,{
       withCredentials: true 
     }).subscribe(
@@ -26,12 +24,9 @@ export class LoginService {
           sessionStorage.setItem('emailSession',response['email'])
           console.log("Hi",response['userName'], "Welcome...");
           this.router.navigate(['listaModulos'])
-          //location.assign( 'listaModulos');
+       
         }, 
         error => {
-          console.log("Esta entrando en el error de login!")
-          //window.location.href = 'login';
-
           console.log("Error del front --> ",error);
         }
       );
@@ -41,7 +36,6 @@ export class LoginService {
     return this.http.get(`${environment.urlQuestionApi}/logout`,{withCredentials: true })
     .subscribe(
       (response) => {
-        console.log("Hi",response);
         sessionStorage.clear;
         this.router.navigate(['login'])
       }, 
