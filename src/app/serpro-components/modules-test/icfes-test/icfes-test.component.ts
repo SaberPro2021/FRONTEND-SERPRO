@@ -6,10 +6,13 @@ import { QuestionsService } from '../../../services/question.service';
 import { FinalScore } from 'src/app/models/finalScore.model';
 import {GradeService} from '../../../services/grade.service';
 
+
 @Component({
+
   selector: 'app-icfes-test',
   templateUrl: './icfes-test.component.html',
   styleUrls: ['./icfes-test.component.css'],
+  
 })
 
 export class IcfesTestComponent implements OnInit {

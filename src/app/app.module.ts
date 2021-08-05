@@ -13,6 +13,7 @@ import { IcfesModulesListComponent } from './serpro-components/icfes-modules-lis
 import { TestListComponent } from './serpro-components/modules-test/test-list.component';
 import { IcfesTestComponent } from './serpro-components/modules-test/icfes-test/icfes-test.component';
 import { MultipleSelectionQuestionComponent } from './serpro-components/modules-test/questions/multiple-selection-question/multiple-selection-question.component';
+import { CountdownModule} from 'ngx-countdown';
 
 // MATERIAL COMPONENTS
 import { MatCardModule } from '@angular/material/card';
@@ -35,7 +36,8 @@ import { SummaryTestComponent } from './serpro-components/modules-test/summary-t
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileComponent } from './serpro-components/profile/profile.component';
-import { MedalComponent } from './serpro-components/profile/medal/medal.component'
+import { MedalComponent } from './serpro-components/profile/medal/medal.component';
+import { TimerComponent } from './serpro-components/timer/timer.component'
 
 
 @NgModule({
@@ -49,7 +51,8 @@ import { MedalComponent } from './serpro-components/profile/medal/medal.componen
     SummaryTestComponent,
     LoginComponent,
     ProfileComponent,
-    MedalComponent
+    MedalComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,8 @@ import { MedalComponent } from './serpro-components/profile/medal/medal.componen
     MatTabsModule,
     MatToolbarModule,
     MatIconModule,
-    NgbModule
+    NgbModule,
+    CountdownModule
   ],
   providers: [QuestionsService], 
   bootstrap: [AppComponent]
