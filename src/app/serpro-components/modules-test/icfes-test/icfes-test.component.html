@@ -1,5 +1,9 @@
 <mat-card class="example-card" id="center-card">
 
+
+  <serpro-timer></serpro-timer>
+
+
   <!-- PREGUNTA SELECCION MULTIPLE-->
   <div *ngIf="currentTest && !testEnded && currentQuestion" >
     <app-multiple-selection-question *ngIf="currentQuestion.questionType == 'multiple-selection'" [question]="currentQuestion" ></app-multiple-selection-question>
