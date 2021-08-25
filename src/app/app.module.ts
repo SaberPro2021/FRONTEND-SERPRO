@@ -37,7 +37,8 @@ import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileComponent } from './serpro-components/profile/profile.component';
 import { MedalComponent } from './serpro-components/profile/medal/medal.component';
-import { TimerComponent } from './serpro-components/timer/timer.component'
+import { TimerComponent } from './serpro-components/timer/timer.component';
+import { HomeIndexComponent } from './serpro-components/home-index/home-index.component'
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { TimerComponent } from './serpro-components/timer/timer.component'
     LoginComponent,
     ProfileComponent,
     MedalComponent,
-    TimerComponent
+    TimerComponent,
+    HomeIndexComponent
   ],
   imports: [
     BrowserModule,
