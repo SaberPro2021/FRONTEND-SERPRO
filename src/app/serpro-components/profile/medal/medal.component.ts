@@ -12,7 +12,7 @@ export class MedalComponent implements OnInit {
   starTemporalCode: Number[]; 
   cupTemporalCode: Number;
   constructor() { 
-    this.starTemporalCode = [2,2,0,2,1,0,0];
+    this.starTemporalCode = [2,1,0];
     this.cupTemporalCode = 1;
     console.log(this.starTemporalCode)
   }
