@@ -22,6 +22,7 @@ export class LoginService {
        response => {
           sessionStorage.setItem('userNameSession',response['userName'])
           sessionStorage.setItem('emailSession',response['email'])
+          sessionStorage.setItem('imageSession',response['image'])
           console.log("Hi",response['userName'], "Welcome...");
           this.router.navigate(['listaModulos'])
        
