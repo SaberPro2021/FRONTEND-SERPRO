@@ -4,6 +4,7 @@ import {environment} from "../../environments/environment";
 import { IcfesModule } from '../models/module.model';
 import { Observable } from 'rxjs';
 import { IcfesTest } from '../models/test.model';
+import { Question } from '../models/question.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,17 +21,17 @@ export class QuestionsService {
     return this.http.get <IcfesTest[]> (`${environment.urlQuestionApi}/icfesTest/moduleId/${moduleId}`,{withCredentials: true});
   }
   
-  public getTestById (testId: string){
+  public getTestById (testId: string): Observable<IcfesTest[]>{
     // TODO: UPDATE WHEN BACK SERVICE IS FIXED
-    return this.http.get(`${environment.urlQuestionApi}/icfesTest/${testId}`,{withCredentials: true});
-    //return this.http.get <IcfesTest[]> (`${environment.urlQuestionApi}/icfesTest/`);
+    //return this.http.get(`${environment.urlQuestionApi}/icfesTest/${testId}`,{withCredentials: true});
+    return this.http.get <IcfesTest[]> (`${environment.urlQuestionApi}/icfesTest/${testId}`,{withCredentials: true});
   }
 
-  public getRandomQuestionsByModuleId (moduleId: string){
-    return this.http.get(`${environment.urlQuestionApi}/question/${moduleId}/${environment.qtyRamdomQuestions}`,{withCredentials: true});
+  public getRandomQuestionsByModuleId (moduleId: string) : Observable<IcfesTest[]>{
+    return this.http.get <IcfesTest[]>(`${environment.urlQuestionApi}/question/${moduleId}/${environment.qtyRamdomQuestions}`,{withCredentials: true});
   }
 
-  public getAllQuestion (endpoint: string){
-    return this.http.get(`${environment.urlQuestionApi}/question`,{withCredentials: true});
+  public getAllQuestion (endpoint: string) : Observable<Question[]>{
+    return this.http.get <Question[]>(`${environment.urlQuestionApi}/question`,{withCredentials: true});
   }
 }

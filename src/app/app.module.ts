@@ -13,7 +13,8 @@ import { IcfesModulesListComponent } from './serpro-components/icfes-modules-lis
 import { TestListComponent } from './serpro-components/modules-test/test-list.component';
 import { IcfesTestComponent } from './serpro-components/modules-test/icfes-test/icfes-test.component';
 import { MultipleSelectionQuestionComponent } from './serpro-components/modules-test/questions/multiple-selection-question/multiple-selection-question.component';
-import { CountdownModule} from 'ngx-countdown';
+import { CountdownModule } from 'ngx-countdown';
+
 
 // MATERIAL COMPONENTS
 import { MatCardModule } from '@angular/material/card';
@@ -24,7 +25,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-
 
 
 //Componente Header
