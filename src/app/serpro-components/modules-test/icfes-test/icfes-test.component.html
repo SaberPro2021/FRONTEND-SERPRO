@@ -1,11 +1,11 @@
+
 <mat-card class="example-card" id="center-card">
 
-<div class="col-xl-12 col-md-6">
-  <serpro-timer></serpro-timer>
-</div>
- 
+  <div><serpro-timer #tc></serpro-timer> </div>
+
   <!-- PREGUNTA SELECCION MULTIPLE-->
   <div class="col-xl-12 col-md-6">
+    
     <div *ngIf="currentTest && !testEnded && currentQuestion" >
       <app-multiple-selection-question *ngIf="currentQuestion.questionType == 'multiple-selection'" [question]="currentQuestion" ></app-multiple-selection-question>
   
@@ -17,17 +17,19 @@
       <br><br>
       <mat-progress-bar name="progressBar" mode="determinate" [value]="currentTest.progress" ></mat-progress-bar>
       <br><br>
+
       <div class="alert" *ngIf="alert">
         <p>¡Olvidaste responder alguna pregunta! - Vuelve y revisa</p>
       </div>
     </div>
-
-    <div *ngIf="this.currentTest.questions.length < 1 || this.currentTest.questions.length == null">
-      
+    
+    <!--<div *ngIf="this.currentTest.questions.length < 1 
+      || this.currentTest.questions.length == null"> -->
+    <div *ngIf="this.lengthArrayQ == 0">
       <h1 class="title"> Lo sentimos, actualmente no tenemos preguntas del modulo</h1>
       <img class="image" src="../../../../assets/images/QuestionWarning.png"> 
-
     </div>
+
   </div>
   <div *ngIf="testEnded">
 

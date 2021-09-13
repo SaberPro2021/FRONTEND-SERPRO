@@ -1,25 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ChangeDetectionStrategy } from '@angular/core';
+import { CountdownComponent, CountdownConfig, CountdownEvent } from 'ngx-countdown';
 
 @Component({
+
   selector: 'serpro-timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  host: {
+    '[class.card]': `true`,
+    '[class.text-center]': `true`,
+  },
+  changeDetection: ChangeDetectionStrategy.OnPush,
+
 })
-export class TimerComponent implements OnInit {
 
 
- 
-  timeData = "2200";
+export class TimerComponent {
 
-  config:any;
+  private strStopTime : string;
+  @ViewChild('cd', { static: false }) 
+  private cdComp : CountdownComponent;
 
-  constructor( ) { 
+  config: CountdownConfig = {
+    leftTime: 1200,
+    format: 'mm:ss'
+  };
+
+  handleEvent(e: CountdownEvent) {
+    console.log('Actions', e  );
+    this.strStopTime = e.text; 
   }
 
-  ngOnInit(): void {
-    this.config = {leftTime: this.timeData, format: 'mm:ss'};
+  stopper () : string {
+
+    this.cdComp.stop();
+    console.log("Stop Timer Called");
+    return this.strStopTime;
+
   }
 
 }
