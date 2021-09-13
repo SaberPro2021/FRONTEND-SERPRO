@@ -1,18 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Question } from 'src/app/models/question.model';
 import { IcfesTest } from 'src/app/models/test.model';
 import { QuestionsService } from '../../../services/question.service';
 import { FinalScore } from 'src/app/models/finalScore.model';
-import {GradeService} from '../../../services/grade.service';
-
+import { GradeService } from '../../../services/grade.service';
+import { TimerComponent } from '../../timer/timer.component';
+import { Observable } from 'rxjs';
 
 @Component({
 
   selector: 'app-icfes-test',
   templateUrl: './icfes-test.component.html',
-  styleUrls: ['./icfes-test.component.css'],
-  
+  styleUrls: ['./icfes-test.component.css']
+
 })
 
 export class IcfesTestComponent implements OnInit {
@@ -24,22 +25,26 @@ export class IcfesTestComponent implements OnInit {
   endPoint = 'question';
   nextAndSend: string;
   alert: boolean;
-  
   finalScore : FinalScore;
+  request: Observable<IcfesTest[]>;
+
+  @ViewChild('tc', { static: false })
+  test : TimerComponent
+
+  lengthArrayQ : number;
+
   constructor(
     private questionsService: QuestionsService,
     private route: ActivatedRoute,
-    private gradeService : GradeService
+    private gradeService : GradeService,
   ) {
     this.questionCount = -1;
+    this.lengthArrayQ = -1;
     this.loadCurrentTest();
     this.nextAndSend = 'Siguiente';
     this.finalScore = new FinalScore();
   }
 
-  /**
-   * TODO: Must be replaced by a service call or an input component variable
-   */
   async loadCurrentTest() {
     const testId = await this.route.snapshot.params.testId;
     const moduleId = await this.route.snapshot.params.moduleId;
@@ -52,18 +57,20 @@ export class IcfesTestComponent implements OnInit {
     this.progressIncrement = 100 / this.currentTest.questions.length;
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   listarQuestions(testId, moduleId) {
-    let request = null;
+    
     if (testId !== 'random') {
-      request = this.questionsService.getTestById (testId);  
+      this.request = this.questionsService.getTestById (testId); 
     } else {
-      request = this.questionsService.getRandomQuestionsByModuleId(moduleId); 
-    }     
-    request.subscribe(
-      (res: any) => {
-        for (let item of res.questions) {
+      this.request = this.questionsService.getRandomQuestionsByModuleId(moduleId); 
+    }  
+
+    this.request.subscribe(
+      (data:any) => {
+        for (let item of data.questions) {
           const objTmp = new Question(
             item.statement,
             item.answers,
@@ -73,13 +80,16 @@ export class IcfesTestComponent implements OnInit {
           this.currentTest.questions.push(
             objTmp  
           );
-        }        
+        }   
+        this.lengthArrayQ = this.currentTest.questions.length;   
         this.calculateProgressIncrement();
         this.nextAction();        
       },
       (err) => {},
     );
+    
   } 
+  
   nextAction() {
     if (this.questionCount == this.currentTest.questions.length - 2) {
       this.nextAndSend = 'ENVIAR';
@@ -89,13 +99,17 @@ export class IcfesTestComponent implements OnInit {
       this.currentQuestion = this.currentTest.questions[++this.questionCount];
     } else {
       if(this.verifyAnswers()){
+
+        const timeTests = this.test.stopper ();
+        console.log("Bonus Win (time) -- > " ,timeTests);
+
         this.currentTest.calculateQtyCorrectQuestions();
     
         const emailSession = sessionStorage.getItem('emailSession');
         const idTest = this.route.snapshot.params.testId;
         const idModule = this.route.snapshot.params.moduleId;
         const finalScore = this.currentTest.qtyCorrectQuestions;
-        const timeTests = "05:00";
+
         const date = new Date();
         console.log("Fechaaaaaaaa -- > " ,date.toString());
 
@@ -110,8 +124,8 @@ export class IcfesTestComponent implements OnInit {
 
         this.gradeService.postScore(this.finalScore);
 
-
         this.testEnded = true;
+        
       }else {
         this.alert = true;
       }
