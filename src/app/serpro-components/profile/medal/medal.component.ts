@@ -1,5 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IcfesModule } from "../../../models/module.model";
+import { IcfesModule } from 'src/app/models/module.model';
+
+
+
 
 @Component({
   selector: 'serpro-medal',
@@ -11,13 +14,19 @@ export class MedalComponent implements OnInit {
   @Input() test?:IcfesModule;
   starTemporalCode: Number[]; 
   cupTemporalCode: Number;
+  
+
+  
+  
   constructor() { 
-    this.starTemporalCode = [2,1,0];
-    this.cupTemporalCode = 1;
-    console.log(this.starTemporalCode)
+    this.starTemporalCode = [1];   
+    this.cupTemporalCode = 0;
+    
   }
 
   ngOnInit(): void {
+  
   }
 
+  
 }

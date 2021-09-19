@@ -27,6 +27,7 @@ export class TestListComponent implements OnInit {
     this.moduleId = await this.route.snapshot.params.moduleId;
 
     this.tests = this.questionServices.getTestsByModuleId(this.moduleId);
+
   }
 
   // Redirect and show test
