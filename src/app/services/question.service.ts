@@ -22,8 +22,6 @@ export class QuestionsService {
   }
   
   public getTestById (testId: string): Observable<IcfesTest[]>{
-    // TODO: UPDATE WHEN BACK SERVICE IS FIXED
-    //return this.http.get(`${environment.urlQuestionApi}/icfesTest/${testId}`,{withCredentials: true});
     return this.http.get <IcfesTest[]> (`${environment.urlQuestionApi}/icfesTest/${testId}`,{withCredentials: true});
   }
 
