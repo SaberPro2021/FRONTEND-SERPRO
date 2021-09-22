@@ -9,6 +9,7 @@ import { IcfesTest } from 'src/app/models/test.model';
 import { session } from 'src/app/models/session.model';
 
 import { LoginService } from 'src/app/services/login.service'
+import { exit } from 'process';
 
 @Component({
   selector: 'serpro-profile',
@@ -20,8 +21,6 @@ export class ProfileComponent implements OnInit {
   userName : string;
   email : string;
   image : string;
-  descriptionModule : string;
-  descriptionTest : string;
   user: Observable<profile[]>; 
   modules: Observable<IcfesModule[]>;
   tests: Observable<IcfesTest[]>;
@@ -40,48 +39,49 @@ export class ProfileComponent implements OnInit {
 
     this.sessionStored = loginService.lastSession (sessionStorage.getItem('emailSession'));
 
-    this.sessionStored.subscribe((dataM:any)=>{
-      for (let i = 0; i < dataM[0].modules.length; i++) 
-        this.arrayModulesSession.push(dataM[0].modules[i]);
-      for (let k = 0; k < dataM[0].tests.length; k++) 
-        this.arrayTestsSession.push(dataM[0].tests[k]);
-    
-      this.modules.subscribe((data:any)=>{
-        for (let index = 0; index < data.length; index++) {
+    this.sessionStored.subscribe((dataS:any)=>{
+
+      if (dataS[0]!=null) {
+          this.arrayModulesSession = dataS[0].modules.slice()
+          this.arrayTestsSession = dataS[0].tests.slice()
+      }
+
+      this.modules.subscribe((dataM:any)=>{
+        for (let i = 0; i < dataM.length; i++) {
             //console.log("Modules:",data[index]._id);  
-            this.descriptionModule = (data[index].description)
-            this.tests =  this.questionServices.getTestsByModuleId(data[index]._id); 
+          
             let arrayTests = new Array();
             let arrayTestsDesc = new Array();
 
-            if (this.arrayModulesSession.includes(data[index]._id))
+            if (this.arrayModulesSession.includes(dataM[i]._id))
               arrayTests.push(1);  
             else
               arrayTests.push(0);
 
-            arrayTestsDesc.push(this.descriptionModule);
-            
-            this.tests.subscribe((data1:any)=>{
-              for (let j = 0; j < data1.length; j++) {
+            arrayTestsDesc.push(dataM[i].description);
 
-              if (this.arrayTestsSession.includes(data1[j]._id))
-                arrayTests.push(1);  
-              else
-                arrayTests.push(0);
- 
-              this.descriptionTest = (data1[j].description)
-              arrayTestsDesc.push(this.descriptionTest);
+            //the character ; identifies request from profile
+            this.tests =  this.questionServices.getTestsByModuleId(dataM[i]._id+";");
+            this.tests.subscribe((dataT:any)=>{
+              for (let j = 0; j < dataT.length; j++) {
+
+                if (this.arrayTestsSession.includes(dataT[j]._id))
+                  arrayTests.push(2);  
+                else
+                  arrayTests.push(0);
+
+              arrayTestsDesc.push(dataT[j].description);
               //console.log(data[index]._id,"<*Modules/Test*>",data1[j]._id);
             }
             this.matrixModuleTest.push(arrayTests); 
             this.matrixDescriptionModuleTest.push(arrayTestsDesc);
           });
-        }
+        }          
       });
 
     });
 
-    console.log("Matrix", this.matrixModuleTest) 
+    //console.log("Matrix", this.matrixModuleTest) 
     //console.log("Matrix", this.matrixDescriptionModuleTest) 
     
     this.userName = sessionStorage.getItem('userNameSession');
@@ -99,7 +99,7 @@ export class ProfileComponent implements OnInit {
   public contarModulos(){
     
     this.resultCount = Object.keys(this.modules).length;
-    console.log("Number count modules",this.resultCount );
+    //console.log("Number count modules",this.resultCount );
    
   }
 
