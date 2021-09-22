@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { LoginModel } from '../models/login.model';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { session } from '../models/session.model';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +33,10 @@ export class LoginService {
           console.log("Error del front --> ",error);
         }
       );
+  }
+
+  lastSession(req: string) : Observable<session[]> {
+    return this.http.get <session[]> (`${environment.urlQuestionApi}/GetSessionByid/${req}`,{withCredentials: true });
   }
 
   postLogout() {
