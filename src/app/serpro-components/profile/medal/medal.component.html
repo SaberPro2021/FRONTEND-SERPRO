@@ -1,0 +1,17 @@
+<div id="content">
+    <div class="cupContain">
+        <div [ngSwitch]="cupTemporalCode">
+            <img *ngSwitchCase="0" src="../../../../assets/images/cup_0.png" title="Modulo no superado">
+            <img *ngSwitchCase="1" src="../../../../assets/images/cup_1.png" title="Modulo con éxito">
+        </div>
+    </div>
+
+    <div *ngFor="let star of starTemporalCode">
+        <div class="starContain" [ngSwitch]="star">
+            <img *ngSwitchCase="0" src="../../../../assets/images/star-0.png" title="Test no superado">
+            <img *ngSwitchCase="1" src="../../../../assets/images/star-1.png" title="Test superado parcialmente">
+            <img *ngSwitchCase="2" src="../../../../assets/images/star-2.png" title="Test superado">
+        </div>
+    </div>
+
+</div> 

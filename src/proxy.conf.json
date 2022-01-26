@@ -1,0 +1,7 @@
+{
+    "/api/*": {
+        "target": "https://apiserpro.poligran.edu.co",
+        "secure": false,
+        "logLevel": "debug"
+    }
+}

@@ -1,0 +1,25 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row >    
+    
+    <button
+      mat-icon-button
+      class="example-icon home-icon"
+      aria-label="Home"
+      [routerLink]="'/listaModulos'"
+      style="justify-self: left;"
+    >
+      <mat-icon >home</mat-icon>
+    </button>
+    <span style="justify-self: center;"> {{title}} </span>
+    <span class="spacer" ></span>
+    <button mat-icon-button 
+      [routerLink]="'/profile'">
+        <i class="material-icons">account_circle</i>
+    </button>
+    <button mat-icon-button>
+      <i class="material-icons" (click)="methodLogout()">logout</i>
+    </button>
+    
+  </mat-toolbar-row>
+
+</mat-toolbar>

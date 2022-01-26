@@ -1,0 +1,6 @@
+.git
+.gitignore
+.editorconfig
+/e2e
+*.zip
+*.md

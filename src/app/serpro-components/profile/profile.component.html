@@ -1,0 +1,35 @@
+<div id="parent">
+
+  <div class="cardMaster">
+    <div id="profileTarget">
+      <!-- <img src="../../../assets/images/user1.png" id="profileImage"> -->
+
+
+      <img src="data:image/gif;base64,{{image}}" />
+      <br>
+      <p> {{userName}} </p>
+      <p> {{email}} </p>
+    </div>
+    <div class="advance">
+      <div *ngFor="let item of matrixModuleTest; let ind=index">
+        <div id="content">
+          <div *ngFor="let star of item; let indice=index">
+            <div class="cupContain" [ngSwitch]="star" *ngIf="indice==0">
+                <img *ngSwitchCase="0" src="../../../../assets/images/cup_0.png">
+                <img *ngSwitchCase="1" src="../../../../assets/images/cup_1.png">
+            </div>
+            <div class="starContain" [ngSwitch]="star" *ngIf="indice>0">
+              <img *ngSwitchCase="0" src="../../../../assets/images/star-0.png">
+              <img *ngSwitchCase="1" src="../../../../assets/images/star-1.png">
+              <img *ngSwitchCase="2" src="../../../../assets/images/star-2.png">
+            </div>
+            <div>
+              <p>{{matrixDescriptionModuleTest[ind][indice]}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
