@@ -1,43 +1,63 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { ChangeDetectionStrategy } from '@angular/core';
-import { CountdownComponent, CountdownConfig, CountdownEvent } from 'ngx-countdown';
+import { Component } from '@angular/core';
 
 @Component({
 
   selector: 'serpro-timer',
   templateUrl: './timer.component.html',
   styleUrls: ['./timer.component.css'],
-  host: {
-    '[class.card]': `true`,
-    '[class.text-center]': `true`,
-  },
-  changeDetection: ChangeDetectionStrategy.OnPush,
 
 })
 
-
 export class TimerComponent {
 
-  private strStopTime : string;
-  @ViewChild('cd', { static: false }) 
-  private cdComp : CountdownComponent;
-
-  config: CountdownConfig = {
-    leftTime: 1200,
-    format: 'mm:ss'
-  };
-
-  handleEvent(e: CountdownEvent) {
-    console.log('Actions', e  );
-    this.strStopTime = e.text; 
+  value : number;
+  points: number;
+  stopval: number;
+  
+  options = {
+    backgroundColor: "#1ab6e3",
+    radius: 60,
+    units: "Puntos",
+    subtitle : "Puedes lograr",
+    unitsColor: "#000040",
+    unitsFontWeight: "500",
+    outerStrokeWidth: 7,
+    innerStrokeWidth: 10,
+    outerStrokeLinecap: "butt",
+    outerStrokeColor: "#FFFFFF",
+    innerStrokeColor: "#FFFFFF",
+    unitsFontSize: "20",
+    titleFontSize: "30",
+    titleFontWeight: "500",
+    titleColor: "#000040",
+    subtitleColor: "#483500",
+    showSubtitle: false,
+    showInnerStroke: false,
+    startFromZero: false,
+    clockwise: false,
+    renderOnClick: false,
+    animation: true,
+    animationDuration: 100000,
+    percent : 100,
+    titleFormat: (percent) => {
+      if (this.value==this.points) {
+        clearInterval(this.value);
+        this.stopval = this.value; 
+        this.value = this.points;
+      } else
+        this.value = 101 - percent;
+      return this.value;
+    }
   }
 
-  stopper () : string {
-
-    this.cdComp.stop();
-    console.log("Stop Timer Called");
-    return this.strStopTime;
-
+  constructor () {
+    this.points = 0
+    this.stopval = 100
   }
 
+  stopper(): number {
+    this.points = this.value;
+    return this.points;
+  }
+  
 }

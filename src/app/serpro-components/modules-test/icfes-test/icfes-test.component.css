@@ -9,8 +9,13 @@ body {
   max-width: 800px;
   align-content: center;
   align-items: center;
-
 }
+
+.comp-card {
+    margin-left: 80px;
+    margin-right: center;
+    width: 20px;
+  }
 
 #center-card{
   margin-left: auto;

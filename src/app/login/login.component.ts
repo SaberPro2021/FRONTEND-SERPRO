@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginModel} from '../models/login.model';
-import {LoginService} from '../services/login.service';
+import { LoginModel } from '../models/login.model';
+import { LoginService } from '../services/login.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -20,6 +20,6 @@ export class LoginComponent implements OnInit {
 
   LoginUser(): void {
     this.loginService.postLogin(this.userCredentials);
-
   }
+
 }

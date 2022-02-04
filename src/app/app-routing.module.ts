@@ -7,17 +7,18 @@ import { SummaryTestComponent } from "./serpro-components/modules-test/summary-t
 import { LoginComponent } from "./login/login.component";
 import { ProfileComponent } from "./serpro-components/profile/profile.component";
 import { HomeIndexComponent } from "./serpro-components/home-index/home-index.component";
-
+import { AuthguardService } from "./services/authguard.service";
 
 const routes: Routes = [
-  {path: '', redirectTo: 'index', pathMatch : 'full'},
-  {path: 'listaModulos', component: IcfesModulesListComponent},
-  {path: 'listaTests/:moduleId', component: TestListComponent},
-  {path: 'test/:testId/:moduleId', component: IcfesTestComponent,
-    children: [ {path: 'SummaryTest', component: SummaryTestComponent}]},
+  {path: '', redirectTo: '/login', pathMatch : 'full'},
+  {path: 'listaModulos', component: IcfesModulesListComponent, canActivate: [AuthguardService]},
+  {path: 'listaTests/:moduleId', component: TestListComponent, canActivate: [AuthguardService]},
+  {path: 'test/:testId/:moduleId', component: IcfesTestComponent, canActivate: [AuthguardService],
+    children: [ {path: 'SummaryTest', component: SummaryTestComponent, canActivate : [AuthguardService]} ]},
   {path: 'login' , component: LoginComponent},
-  {path: 'profile' , component:ProfileComponent },
-  {path: 'index' , component:HomeIndexComponent }
+  {path: 'profile' , component: ProfileComponent, canActivate: [AuthguardService]},
+  {path: 'index' , component: HomeIndexComponent},
+  {path: '**',component: LoginComponent}
 ];
 
 @NgModule({

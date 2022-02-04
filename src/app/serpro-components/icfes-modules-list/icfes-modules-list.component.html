@@ -1,3 +1,5 @@
+<app-header title="BIENVENIDO A SERPRO"></app-header>
+
 <mat-toolbar color="primary">
   <mat-toolbar-row style="justify-content: center;">    
     <span> LISTA DE MODULOS </span>
@@ -22,7 +24,9 @@
 
 
  <div class="container" >
-   <div class="card" *ngFor="let module of modules | async">
+
+
+  <div class="card" *ngFor="let module of modules | async">
      <img src="../../../assets/images/logopoli.png">
      <h4>{{module.knowledgeArea}}</h4>
      <p>{{ module.description }}</p>
