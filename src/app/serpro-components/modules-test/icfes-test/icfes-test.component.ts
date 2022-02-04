@@ -28,7 +28,9 @@ export class IcfesTestComponent implements OnInit {
   finalScore : FinalScore;
   request: Observable<IcfesTest[]>;
 
-  @ViewChild('tc', { static: false })
+  //@ViewChild('tc', { static: false })
+  
+  @ViewChild('circleProgress') 
   test : TimerComponent
 
   lengthArrayQ : number;
@@ -100,8 +102,8 @@ export class IcfesTestComponent implements OnInit {
     } else {
       if(this.verifyAnswers()){
 
-        const timeTests = this.test.stopper ();
-        console.log("Bonus Win (time) -- > " ,timeTests);
+        const timeTests = this.test.stopper();
+        console.log("Bonus Win (points) -- > ", timeTests);
 
         this.currentTest.calculateQtyCorrectQuestions();
     
@@ -117,7 +119,7 @@ export class IcfesTestComponent implements OnInit {
         this.finalScore.testId = idTest;
         this.finalScore.moduleId= idModule;
         this.finalScore.score = finalScore;
-        this.finalScore.time= timeTests;
+        this.finalScore.time= timeTests.toString();
         this.finalScore.date = date.toString();
        
         console.log("Objeto -> ",this.finalScore);

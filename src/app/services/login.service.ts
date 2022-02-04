@@ -5,6 +5,7 @@ import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { session } from '../models/session.model';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +13,9 @@ import { session } from '../models/session.model';
 
 export class LoginService {
 
-  constructor(private http: HttpClient, private router: Router) {
-
+  islogged:boolean;
+  constructor(private http: HttpClient, private router: Router, private toastr: ToastrService) {
+    this.islogged = false;
   }
 
   postLogin(loginModule: LoginModel) {
@@ -21,16 +23,24 @@ export class LoginService {
     return this.http.post(`${environment.urlQuestionApi}/login`, loginModule,{
       withCredentials: true 
     }).subscribe(
-       response => {
+       (response) => {
           sessionStorage.setItem('userNameSession',response['userName'])
           sessionStorage.setItem('emailSession',response['email'])
           sessionStorage.setItem('imageSession',response['image'])
           console.log("Hi",response['userName'], "Welcome...");
+          this.islogged = true;
           this.router.navigate(['listaModulos'])
-       
         }, 
-        error => {
-          console.log("Error del front --> ",error);
+        (err) => {
+          this.islogged = false;
+          if (err.error.message != null) {
+            this.toastr.error (err.error.message);
+            console.log("login.service -> postLogin ",err.error.message);
+          }
+          else {
+            this.toastr.error (err.message,"Error de conexión.");
+            console.log("login.service -> postLogin (posible desconexión de servicios de backend o ldap)",err);
+          }
         }
       );
   }
@@ -46,8 +56,9 @@ export class LoginService {
         sessionStorage.clear;
         this.router.navigate(['login'])
       }, 
-      error => {
-        console.log("Error Logout",error)
+      (err) => {
+        this.toastr.error ("Error de conexión. ",err.message);
+        console.log("login.service -> postLogout (posible desconexión de servicios de backend o ldap)",err.message);
       }
     );
   }

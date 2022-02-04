@@ -14,6 +14,7 @@ import { TestListComponent } from './serpro-components/modules-test/test-list.co
 import { IcfesTestComponent } from './serpro-components/modules-test/icfes-test/icfes-test.component';
 import { MultipleSelectionQuestionComponent } from './serpro-components/modules-test/questions/multiple-selection-question/multiple-selection-question.component';
 import { CountdownModule } from 'ngx-countdown';
+import { ToastrModule } from 'ngx-toastr';
 
 
 // MATERIAL COMPONENTS
@@ -25,7 +26,7 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 //Componente Header
 import { HeaderComponent } from './serpro-components/header/header.component';
@@ -39,6 +40,7 @@ import { ProfileComponent } from './serpro-components/profile/profile.component'
 import { MedalComponent } from './serpro-components/profile/medal/medal.component';
 import { TimerComponent } from './serpro-components/timer/timer.component';
 import { HomeIndexComponent } from './serpro-components/home-index/home-index.component'
+import { AuthguardService } from './services/authguard.service';
 
 
 @NgModule({
@@ -72,9 +74,11 @@ import { HomeIndexComponent } from './serpro-components/home-index/home-index.co
     MatToolbarModule,
     MatIconModule,
     NgbModule,
-    CountdownModule
+    CountdownModule,
+    ToastrModule.forRoot(),
+    NgCircleProgressModule.forRoot()
   ],
-  providers: [QuestionsService], 
+  providers: [QuestionsService, AuthguardService], 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

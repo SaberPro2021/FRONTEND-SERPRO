@@ -22,7 +22,6 @@ export class IcfesModulesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.listarModulos();
-
   }
 
   public listarModulos() {
