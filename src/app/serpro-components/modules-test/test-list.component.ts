@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IcfesTest } from 'src/app/models/test.model';
+import { environment } from 'src/environments/environment';
 import { QuestionsService } from '../../services/question.service';
 
 @Component({
@@ -13,6 +14,7 @@ export class TestListComponent implements OnInit {
   panelOpenState = false;
   tests: Observable<IcfesTest[]>;
   moduleId: string;
+  msgHeader: any;
 
   constructor(
     private questionServices: QuestionsService,
@@ -20,6 +22,7 @@ export class TestListComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.msgHeader = environment.msgHeader
     this.listarModulos();
   }
 

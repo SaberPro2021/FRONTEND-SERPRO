@@ -6,10 +6,10 @@
 }
 
 .cardMaster{
-    height: 80%;
+    height: 100%;
     width: 100%;
     display: grid;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 100%;
 }
 
 #profileTarget{
@@ -35,11 +35,20 @@
     padding: 5%;
 }
 
+
+table {
+    font-family: arial, sans-serif;
+    font-size: large;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+
 @media (max-width: 650px) {
 
     .cardMaster{
         height: 80%;
-        display: grid;
+        display: white;
         grid-template-columns: 100%;
     }
 
@@ -92,21 +101,18 @@
 }
   
 img{
-    height: 50px;
+    height: 60px;
 }
+
 
 .cupContain{
     width: 100px;
     height: 50px;
     margin: 0 0px 0 0;
-    padding: 0;
+    padding: 7;
     display: inline-block;
 }
 
-.starContain{
-    width: 100px;
-    height: 50px;
-    margin: 0 0px 0 0;
-    padding: 0;
-    display: inline-block;
+td,tr {
+    vertical-align:middle;
 }
