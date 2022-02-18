@@ -135,12 +135,12 @@ export class ProfileComponent implements OnInit {
                   
                   //const Factory = this.resolver.resolveComponentFactory(GoogleChartComponent);
                   
-                  this.googleGauge.type = ChartType.Gauge;
-                  this.googleGauge.options = this.chart.options;
-                  this.googleGauge.data = this.dataAcum;                  
-                  const componentRef = this.virtualcontainer.createComponent(this.googleGauge);
+                  //this.googleGauge.type = ChartType.Gauge;
+                  //this.googleGauge.options = this.chart.options;
+                  //this.googleGauge.data = this.dataAcum;                  
+                  //const componentRef = this.virtualcontainer.createComponent(this.googleGauge);
 
-                  console.log("-->", this.googleGauge.data);
+                  //console.log("-->", this.googleGauge.data);
                   
                   
                 }

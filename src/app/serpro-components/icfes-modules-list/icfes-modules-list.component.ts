@@ -1,6 +1,4 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
-import { Result } from 'postcss';
 import { Observable } from 'rxjs';
 import { IcfesModule } from 'src/app/models/module.model';
 import { QuestionsService } from 'src/app/services/question.service';
