@@ -7,6 +7,7 @@ import { FinalScore } from 'src/app/models/finalScore.model';
 import { GradeService } from '../../../services/grade.service';
 import { TimerComponent } from '../../timer/timer.component';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
 
@@ -34,6 +35,7 @@ export class IcfesTestComponent implements OnInit {
   test : TimerComponent
 
   lengthArrayQ : number;
+  msgHeader: any;
 
   constructor(
     private questionsService: QuestionsService,
@@ -60,7 +62,8 @@ export class IcfesTestComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  }
+    this.msgHeader = environment.msgHeader
+  } 
 
   listarQuestions(testId, moduleId) {
     

@@ -1,4 +1,5 @@
-<app-header title="BIENVENIDO A SERPRO"></app-header>
+<app-header title={{msgHeader}}></app-header>
+
 
 <div class="container" >
   <div class="card" *ngFor="let test of tests | async; let nroPrueba = index;">

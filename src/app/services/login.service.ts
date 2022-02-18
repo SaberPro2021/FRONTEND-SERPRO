@@ -28,6 +28,7 @@ export class LoginService {
           sessionStorage.setItem('emailSession',response['email'])
           sessionStorage.setItem('imageSession',response['image'])
           console.log("Hi",response['userName'], "Welcome...");
+          environment.msgHeader = environment.msgGralApp + ' '+ sessionStorage.getItem('userNameSession');
           this.islogged = true;
           this.router.navigate(['listaModulos'])
         }, 

@@ -8,14 +8,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {MatListModule} from '@angular/material/list';
+
 import { RouterModule } from '@angular/router';
 import { IcfesModulesListComponent } from './serpro-components/icfes-modules-list/icfes-modules-list.component';
 import { TestListComponent } from './serpro-components/modules-test/test-list.component';
 import { IcfesTestComponent } from './serpro-components/modules-test/icfes-test/icfes-test.component';
 import { MultipleSelectionQuestionComponent } from './serpro-components/modules-test/questions/multiple-selection-question/multiple-selection-question.component';
-import { CountdownModule } from 'ngx-countdown';
-import { ToastrModule } from 'ngx-toastr';
-
 
 // MATERIAL COMPONENTS
 import { MatCardModule } from '@angular/material/card';
@@ -26,7 +25,10 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { ToastrModule } from 'ngx-toastr';
 import { NgCircleProgressModule } from 'ng-circle-progress';
+import { GoogleChartComponent, GoogleChartsModule } from 'angular-google-charts';
+
 
 //Componente Header
 import { HeaderComponent } from './serpro-components/header/header.component';
@@ -62,6 +64,7 @@ import { AuthguardService } from './services/authguard.service';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatListModule,
     MatCardModule,
     MatButtonModule,
     MatProgressBarModule,
@@ -74,12 +77,13 @@ import { AuthguardService } from './services/authguard.service';
     MatToolbarModule,
     MatIconModule,
     NgbModule,
-    CountdownModule,
     ToastrModule.forRoot(),
-    NgCircleProgressModule.forRoot()
+    NgCircleProgressModule.forRoot(),
+    GoogleChartsModule.forRoot()
   ],
   providers: [QuestionsService, AuthguardService], 
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [GoogleChartComponent]
 })
 export class AppModule { }
 //

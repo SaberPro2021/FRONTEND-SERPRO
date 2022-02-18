@@ -4,6 +4,7 @@ import { Result } from 'postcss';
 import { Observable } from 'rxjs';
 import { IcfesModule } from 'src/app/models/module.model';
 import { QuestionsService } from 'src/app/services/question.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'serpro-icfes-modules-list',
@@ -17,10 +18,12 @@ export class IcfesModulesListComponent implements OnInit {
   modules: Observable<IcfesModule[]>;
   numberCountModules: number;
   resultCount : number;
+  msgHeader: string;
 
   constructor(private questionServices: QuestionsService) { }
 
   ngOnInit(): void {
+    this.msgHeader = environment.msgHeader
     this.listarModulos();
   }
 

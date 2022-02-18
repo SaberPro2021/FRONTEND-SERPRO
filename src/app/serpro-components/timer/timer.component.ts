@@ -37,7 +37,7 @@ export class TimerComponent {
     clockwise: false,
     renderOnClick: false,
     animation: true,
-    animationDuration: 100000,
+    animationDuration: 200000,
     percent : 100,
     titleFormat: (percent) => {
       if (this.value==this.points) {
