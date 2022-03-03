@@ -27,10 +27,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { ToastrModule } from 'ngx-toastr';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-<<<<<<< HEAD:src/app/app.module.ts
-=======
-import { GoogleChartComponent, GoogleChartsModule } from 'angular-google-charts';
->>>>>>> e2338841b56ba7e1f3acd0c75468d1c3d5475d37:FRONT_APP_SERPRO-master/src/app/app.module.ts
 
 
 //Componente Header
@@ -46,11 +42,7 @@ import { MedalComponent } from './serpro-components/profile/medal/medal.componen
 import { TimerComponent } from './serpro-components/timer/timer.component';
 import { HomeIndexComponent } from './serpro-components/home-index/home-index.component'
 import { AuthguardService } from './services/authguard.service';
-<<<<<<< HEAD:src/app/app.module.ts
 import { DynamicChildLoaderDirective } from './services/dynamic-child-loader.directive'
-=======
-
->>>>>>> e2338841b56ba7e1f3acd0c75468d1c3d5475d37:FRONT_APP_SERPRO-master/src/app/app.module.ts
 
 @NgModule({
   declarations: [
@@ -65,12 +57,8 @@ import { DynamicChildLoaderDirective } from './services/dynamic-child-loader.dir
     ProfileComponent,
     MedalComponent,
     TimerComponent,
-<<<<<<< HEAD:src/app/app.module.ts
     HomeIndexComponent,
     DynamicChildLoaderDirective
-=======
-    HomeIndexComponent
->>>>>>> e2338841b56ba7e1f3acd0c75468d1c3d5475d37:FRONT_APP_SERPRO-master/src/app/app.module.ts
   ],
   imports: [
     BrowserModule,
@@ -90,20 +78,11 @@ import { DynamicChildLoaderDirective } from './services/dynamic-child-loader.dir
     MatIconModule,
     NgbModule,
     ToastrModule.forRoot(),
-<<<<<<< HEAD:src/app/app.module.ts
     NgCircleProgressModule.forRoot()
   ],
   providers: [QuestionsService, AuthguardService], 
   entryComponents: [TimerComponent],
   bootstrap: [AppComponent]
-=======
-    NgCircleProgressModule.forRoot(),
-    GoogleChartsModule.forRoot()
-  ],
-  providers: [QuestionsService, AuthguardService], 
-  bootstrap: [AppComponent],
-  entryComponents: [GoogleChartComponent]
->>>>>>> e2338841b56ba7e1f3acd0c75468d1c3d5475d37:FRONT_APP_SERPRO-master/src/app/app.module.ts
 })
 export class AppModule { }
 //
