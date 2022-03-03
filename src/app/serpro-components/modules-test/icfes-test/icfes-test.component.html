@@ -19,9 +19,15 @@
           *ngIf="this.currentTest.questions.indexOf(this.currentQuestion) > 0; then activeButton else disableButton ">
         </div>
         <ng-template #activeButton> <button mat-button (click)="previousAction ()" class="mat-raised-button"
+<<<<<<< HEAD
             color="primary">Atrás </button> </ng-template>
         <ng-template #disableButton> <button mat-button #disableButton (click)="previousAction ()"
             class="mat-raised-button" color="primary" disabled>Atrás </button> </ng-template>
+=======
+            color="primary">ATRAS </button> </ng-template>
+        <ng-template #disableButton> <button mat-button #disableButton (click)="previousAction ()"
+            class="mat-raised-button" color="primary" disabled>ATRAS </button> </ng-template>
+>>>>>>> e2338841b56ba7e1f3acd0c75468d1c3d5475d37
         <button mat-button (click)="nextAction ()" class="mat-raised-button" color="accent"> {{nextAndSend}}</button>
         <br><br>
         <mat-progress-bar name="progressBar" mode="determinate" [value]="currentTest.progress"></mat-progress-bar>
