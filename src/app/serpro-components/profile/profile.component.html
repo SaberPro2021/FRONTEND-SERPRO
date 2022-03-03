@@ -9,6 +9,7 @@
           <tr>
             <th>MÓDULO</th>
             <th>TESTS</th>
+            <th>PUNTAJE</th>
           </tr>
         </thead>
         <tbody>
@@ -17,27 +18,20 @@
 
             <td>{{matrixDescriptionModuleTest[ind][0]}}</td>
 
-            <td *ngFor="let star of item; let indice=index">
-              <div [ngSwitch]="star" *ngIf="indice>0" ngbTooltip={{matrixDescriptionModuleTest[ind][indice]}}>
+            <td *ngFor="let star of item | slice:1; let indice=index">
+
+              <div [ngSwitch]="star" ngbTooltip={{matrixDescriptionModuleTest[ind][indice+1]}}>
 
                 <img *ngSwitchCase="0" src="../../../../assets/images/star-0.png">
                 <img *ngSwitchCase="1" src="../../../../assets/images/star-1.png">
                 <img *ngSwitchCase="2" src="../../../../assets/images/star-2.png">
 
               </div>
-
             </td>
 
             <td>
-            <!-- <ng-template #gauges >dada</ng-template>  -->
-            <div id="chart_div"></div>
+            <ng-template dynamicChildLoader></ng-template>
             </td>
-
-
-            <td>
-              <google-chart [type]="myType" [data]="myData"></google-chart>
-            </td>
-
 
           </tr>
 
@@ -51,7 +45,8 @@
 
 
 <!-- 
-<div id="parent">
+
+  <div id="parent">
   <div class="cardMaster">
     <div class="advance">
       <div *ngFor="let item of matrixModuleTest; let ind=index">

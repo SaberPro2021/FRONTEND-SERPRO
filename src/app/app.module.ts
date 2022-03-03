@@ -27,7 +27,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { ToastrModule } from 'ngx-toastr';
 import { NgCircleProgressModule } from 'ng-circle-progress';
-import { GoogleChartComponent, GoogleChartsModule } from 'angular-google-charts';
 
 
 //Componente Header
@@ -43,7 +42,7 @@ import { MedalComponent } from './serpro-components/profile/medal/medal.componen
 import { TimerComponent } from './serpro-components/timer/timer.component';
 import { HomeIndexComponent } from './serpro-components/home-index/home-index.component'
 import { AuthguardService } from './services/authguard.service';
-
+import { DynamicChildLoaderDirective } from './services/dynamic-child-loader.directive'
 
 @NgModule({
   declarations: [
@@ -58,7 +57,8 @@ import { AuthguardService } from './services/authguard.service';
     ProfileComponent,
     MedalComponent,
     TimerComponent,
-    HomeIndexComponent
+    HomeIndexComponent,
+    DynamicChildLoaderDirective
   ],
   imports: [
     BrowserModule,
@@ -78,12 +78,11 @@ import { AuthguardService } from './services/authguard.service';
     MatIconModule,
     NgbModule,
     ToastrModule.forRoot(),
-    NgCircleProgressModule.forRoot(),
-    GoogleChartsModule.forRoot()
+    NgCircleProgressModule.forRoot()
   ],
   providers: [QuestionsService, AuthguardService], 
-  bootstrap: [AppComponent],
-  entryComponents: [GoogleChartComponent]
+  entryComponents: [TimerComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
 //

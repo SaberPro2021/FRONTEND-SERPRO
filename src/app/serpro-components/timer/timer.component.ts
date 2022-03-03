@@ -10,15 +10,15 @@ import { Component } from '@angular/core';
 
 export class TimerComponent {
 
-  value : number;
+  value: number;
   points: number;
   stopval: number;
-  
+
   options = {
     backgroundColor: "#1ab6e3",
     radius: 60,
     units: "Puntos",
-    subtitle : "Puedes lograr",
+    subtitle: "Puedes lograr",
     unitsColor: "#000040",
     unitsFontWeight: "500",
     outerStrokeWidth: 7,
@@ -38,11 +38,11 @@ export class TimerComponent {
     renderOnClick: false,
     animation: true,
     animationDuration: 200000,
-    percent : 100,
+    percent: 100,
     titleFormat: (percent) => {
-      if (this.value==this.points) {
+      if (this.value == this.points) {
         clearInterval(this.value);
-        this.stopval = this.value; 
+        this.stopval = this.value;
         this.value = this.points;
       } else
         this.value = 101 - percent;
@@ -50,7 +50,7 @@ export class TimerComponent {
     }
   }
 
-  constructor () {
+  constructor() {
     this.points = 0
     this.stopval = 100
   }
@@ -59,5 +59,5 @@ export class TimerComponent {
     this.points = this.value;
     return this.points;
   }
-  
+
 }
