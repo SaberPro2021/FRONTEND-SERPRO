@@ -58,7 +58,7 @@ export class GaugeComponent implements OnInit {
         },
         data: [
           {
-            value: Math.floor(Math.random() * 10) + 90
+            value: 0
           }
         ]
       }
