@@ -1,15 +1,14 @@
 <app-header title={{msgHeader}}></app-header>
 
 <div class="row justify-content-center">
-  <div class="col-lg-8">
-    <div class="cardMaster">
+  <div class="col-lg-9">
+    <div >
 
       <table class="table">
         <thead>
           <tr>
             <th>MÓDULO</th>
             <th>TESTS</th>
-            <th>PUNTAJE</th>
           </tr>
         </thead>
         <tbody>
@@ -29,9 +28,7 @@
               </div>
             </td>
 
-            <td>
-            <ng-template dynamicChildLoader></ng-template>
-            </td>
+            <td><ng-template dynamicChildLoader></ng-template></td>
 
           </tr>
 
@@ -43,29 +40,3 @@
   </div>
 </div>
 
-
-<!-- 
-
-  <div id="parent">
-  <div class="cardMaster">
-    <div class="advance">
-      <div *ngFor="let item of matrixModuleTest; let ind=index">
-        {{matrixDescriptionModuleTest[ind][0]}}
-        <div id="content">
-          <div *ngFor="let star of item; let indice=index">
-            <div class="cupContain" [ngSwitch]="star" *ngIf="indice==0">
-              <img *ngSwitchCase="0" src="../../../../assets/images/cup_0.png">
-              <img *ngSwitchCase="1" src="../../../../assets/images/cup_1.png">
-            </div>
-            <div class="starContain" [ngSwitch]="star" *ngIf="indice>0"
-              ngbTooltip={{matrixDescriptionModuleTest[ind][indice]}}>
-              <img *ngSwitchCase="0" src="../../../../assets/images/star-0.png">
-              <img *ngSwitchCase="1" src="../../../../assets/images/star-1.png">
-              <img *ngSwitchCase="2" src="../../../../assets/images/star-2.png">
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->

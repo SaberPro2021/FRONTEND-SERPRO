@@ -28,6 +28,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ToastrModule } from 'ngx-toastr';
 import { NgCircleProgressModule } from 'ng-circle-progress';
 
+import * as echarts from 'echarts';
+import { NgxEchartsModule } from 'ngx-echarts';
 
 //Componente Header
 import { HeaderComponent } from './serpro-components/header/header.component';
@@ -38,11 +40,11 @@ import { SummaryTestComponent } from './serpro-components/modules-test/summary-t
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProfileComponent } from './serpro-components/profile/profile.component';
-import { MedalComponent } from './serpro-components/profile/medal/medal.component';
 import { TimerComponent } from './serpro-components/timer/timer.component';
 import { HomeIndexComponent } from './serpro-components/home-index/home-index.component'
 import { AuthguardService } from './services/authguard.service';
-import { DynamicChildLoaderDirective } from './services/dynamic-child-loader.directive'
+import { DynamicChildLoaderDirective } from './services/dynamic-child-loader.directive';
+import { GaugeComponent } from './serpro-components/profile/gauge/gauge.component'
 
 @NgModule({
   declarations: [
@@ -55,10 +57,10 @@ import { DynamicChildLoaderDirective } from './services/dynamic-child-loader.dir
     SummaryTestComponent,
     LoginComponent,
     ProfileComponent,
-    MedalComponent,
     TimerComponent,
     HomeIndexComponent,
-    DynamicChildLoaderDirective
+    DynamicChildLoaderDirective,
+    GaugeComponent
   ],
   imports: [
     BrowserModule,
@@ -78,10 +80,13 @@ import { DynamicChildLoaderDirective } from './services/dynamic-child-loader.dir
     MatIconModule,
     NgbModule,
     ToastrModule.forRoot(),
-    NgCircleProgressModule.forRoot()
+    NgCircleProgressModule.forRoot(),
+    NgxEchartsModule.forRoot({
+      echarts
+    })
   ],
   providers: [QuestionsService, AuthguardService], 
-  entryComponents: [TimerComponent],
+  entryComponents: [GaugeComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

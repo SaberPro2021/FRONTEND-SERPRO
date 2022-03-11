@@ -11,6 +11,7 @@ import { LoginService } from 'src/app/services/login.service'
 import { environment } from 'src/environments/environment';
 import { TimerComponent } from '../timer/timer.component';
 import { DynamicChildLoaderDirective } from 'src/app/services/dynamic-child-loader.directive';
+import { GaugeComponent } from './gauge/gauge.component';
 
 @Component({
   selector: 'serpro-profile',
@@ -75,7 +76,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
             arrayTests.push(1);
           else
             arrayTests.push(0);
-
+          
           arrayTestsDesc.push(dataM[i].knowledgeArea);
 
           //the character ; identifies request from profile
@@ -102,7 +103,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
           this.gradeService.getScoreByModule(this.email).subscribe((data: any) => {
             for (let index = 0; index < data.length; index++) {
               if (data[index]._id == dataM[i]._id) {
-                this.dataAcum.set(dataM[i]._id, ['%', data[index].sum / data[index].count]);
+                this.dataAcum.set(dataM[i]._id, [data[index].sum / data[index].count]);
               }
             }
           });
@@ -110,7 +111,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
         }
 
       });
-
+      
       /*
       console.log("Matrix Test", this.matrixModuleTest)
       console.log("Matrix Descp Modules", this.matrixDescriptionModuleTest)
@@ -124,10 +125,10 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.dynamicChild.changes.forEach((item: QueryList<DynamicChildLoaderDirective>) => {
       if (item.length == this.resultCount)
-        item.forEach((v: DynamicChildLoaderDirective) => {
-          var c = v.viewContainerRef.createComponent(TimerComponent).instance
-          c.points = Math.floor(Math.random() * 10) + 90;
-          //console.log(c)
+        item.forEach((v: DynamicChildLoaderDirective, index: number) => {
+          var c = v.viewContainerRef.createComponent(GaugeComponent).instance
+          c.chartOptions.series[0].data = this.dataAcum.get(this.arrayModulesSession[index].toString())
+          //console.log(index, ' ' ,this.arrayModulesSession[index].toString(), ,this.dataAcum.get(this.arrayModulesSession[index].toString()))          
         })
     });
   }
@@ -139,7 +140,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
   public contarModulos() {
     this.modules.subscribe((m)=>{this.resultCount = m.length});
     //console.log("Number count modules",this.resultCount);
-  }
+  }  
 
 }
 
