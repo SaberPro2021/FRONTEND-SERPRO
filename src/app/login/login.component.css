@@ -292,6 +292,10 @@ input[type=password]:placeholder {
   outline: none;
 }
 
+#iconpoli {
+  width:30%;
+}
+
 #icon {
   width:60%;
 }
