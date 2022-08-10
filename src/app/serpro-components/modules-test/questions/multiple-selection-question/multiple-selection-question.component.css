@@ -5,6 +5,11 @@
 
 }
 
+.answer_statement{
+  white-space:pre-wrap !important;
+
+}
+
 #center-card{
   margin-left: auto;
   margin-right: auto;
