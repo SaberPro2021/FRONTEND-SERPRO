@@ -52,11 +52,3 @@
     text-decoration: none;
     color: #3498db;
 }
-
-.contain_back{
-  bottom: 50px;
-  position: absolute;
-  top: 95%;
-  left: 50%;
-  margin: -25px 0 0 -50px
-}
