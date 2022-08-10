@@ -1,7 +1,7 @@
 <app-header title={{msgHeader}}></app-header>
 
 <mat-toolbar color="primary">
-  <mat-toolbar-row style="justify-content: center;">    
+  <mat-toolbar-row style="justify-content: center;">
     <span> LISTA DE MODULOS </span>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -30,11 +30,11 @@
      <img src="../../../assets/images/logopoli.png">
      <h4>{{module.knowledgeArea}}</h4>
      <p>{{ module.description }}</p>
-     <a [routerLink]="'/listaTests/' + module._id">Tomar Modulo</a>
-     <!-- <mat-card-actions style="text-align: center;">            
+     <a [routerLink]="'/listaTests/' + module._id" class="contain_back">Tomar Modulo</a>
+     <!-- <mat-card-actions style="text-align: center;">
       <button  mat-raised-button color="primary" [routerLink]="'/listaTests/' + module._id">Abrir</button>
     </mat-card-actions> -->
-   </div>   
+   </div>
  </div>
 
 
@@ -59,13 +59,13 @@
           <div mat-card-avatar class="example-header-image" [ngStyle]="{'background-image': 'url(./assets/images/default-module-img.png)','background-size': 'cover'}" >
           </div>
           <mat-card-title>{{module.knowledgeArea}}</mat-card-title>
-        </mat-card-header>          
+        </mat-card-header>
         <mat-card-content>
           <p>
             {{ module.description }}
           </p>
         </mat-card-content>
-        <mat-card-actions style="text-align: right;">            
+        <mat-card-actions style="text-align: right;">
           <button  mat-raised-button color="primary" [routerLink]="'/listaTests/' + module._id">Abrir</button>
         </mat-card-actions>
       </mat-card>
