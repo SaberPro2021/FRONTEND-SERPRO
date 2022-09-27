@@ -27,7 +27,7 @@
 
 
   <div class="card" *ngFor="let module of modules | async">
-     <img src="../../../assets/images/logopoli.png">
+    <img [src]="'data:image/jpg;base64,{{module.imageModule}}'" ng-model="module.imageModule" />
      <h4>{{module.knowledgeArea}}</h4>
      <p>{{ module.description }}</p>
      <a [routerLink]="'/listaTests/' + module._id" class="contain_back">Tomar Modulo</a>

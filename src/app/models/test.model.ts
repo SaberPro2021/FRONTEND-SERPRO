@@ -12,12 +12,13 @@ export class IcfesTest {
     module: number;
     questions: Question[];
     qtyCorrectQuestions : number;
+    imageTest: string;
 
 
     calculateQtyCorrectQuestions() {
       this.qtyCorrectQuestions = 0;
       this.questions.forEach(
-        (question) => {          
+        (question) => {
           if(question.checkAnswerPoints() > 0){
             this.qtyCorrectQuestions +=1;
           }

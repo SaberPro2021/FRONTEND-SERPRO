@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -15,6 +16,7 @@ export class TestListComponent implements OnInit {
   tests: Observable<IcfesTest[]>;
   moduleId: string;
   msgHeader: any;
+  imageSource;
 
   constructor(
     private questionServices: QuestionsService,
@@ -28,10 +30,15 @@ export class TestListComponent implements OnInit {
 
   async listarModulos() {
     this.moduleId = await this.route.snapshot.params.moduleId;
-
     this.tests = this.questionServices.getTestsByModuleId(this.moduleId);
 
+    this.tests.forEach(element => {})
+
   }
+
+  getBase64Image(base64string) {
+    return base64string.replace(/^data:image\/(png|jpg);base64,/, "");
+}
 
   // Redirect and show test
   openTest() {}
