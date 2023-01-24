@@ -27,8 +27,13 @@ export class IcfesModulesListComponent implements OnInit {
 
   public listarModulos() {
     this.modules = this.questionServices.getAllModules();
+    this.modules.forEach(x => {
+        console.log(x);
+      }
+    );
+
   }
 
-  
+
 
 }

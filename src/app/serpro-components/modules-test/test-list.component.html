@@ -1,11 +1,14 @@
 <app-header title={{msgHeader}}></app-header>
-
+<mat-toolbar color="primary">
+  <mat-toolbar-row style="justify-content: center;">
+    <span> LISTADO DE PRUEBAS </span>
+  </mat-toolbar-row>
+</mat-toolbar>
 
 <div class="container" >
   <div class="card" *ngFor="let test of tests | async; let nroPrueba = index;">
    <!-- <img [src]="test.imageTest" alt="Image Source">-->
-
-   <img [src]="'data:image/jpg;base64,{{test.imageTest}}'" ng-model="test.imageTest" />
+   <img src={{test.imageTest}} ng-model="test.imageTest" />
     <!--<img src="../../../assets/images/logopoli.png">-->
     <h4>{{ test.title }} </h4>
     <p> {{ test.description }}</p>

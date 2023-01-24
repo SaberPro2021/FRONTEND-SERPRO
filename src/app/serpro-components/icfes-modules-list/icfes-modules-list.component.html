@@ -2,32 +2,19 @@
 
 <mat-toolbar color="primary">
   <mat-toolbar-row style="justify-content: center;">
-    <span> LISTA DE MODULOS </span>
+    <span> LISTADO DE MODULOS </span>
   </mat-toolbar-row>
 </mat-toolbar>
 <br> <br>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css
-">
-
-<!-- <div class="jumbotron">
-    <div class="row w-100">
-      <div class="col-md-3" *ngFor="let module of modules | async">
-        <div class="card border-info mx-sm-1 p-3"  >
-            <div class="card border-info shadow text-info p-3 my-card" ><span class="fa fa-shield" aria-hidden="true"></span></div>
-            <div class="text-info text-center mt-3"><h4>{{module.knowledgeArea}}</h4></div>
-            <div class="text-info text-center mt-2"><h1> {{ module.description }}</h1></div>
-        </div>
-      </div>
-    </div>
-  </div>
- -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 
 
  <div class="container" >
 
 
   <div class="card" *ngFor="let module of modules | async">
-    <img [src]="'data:image/jpg;base64,{{module.imageModule}}'" ng-model="module.imageModule" />
+
+    <img src={{module.imageModule}} ng-model="module.imageModule" />
      <h4>{{module.knowledgeArea}}</h4>
      <p>{{ module.description }}</p>
      <a [routerLink]="'/listaTests/' + module._id" class="contain_back">Tomar Modulo</a>

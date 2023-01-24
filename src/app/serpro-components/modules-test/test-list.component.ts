@@ -29,10 +29,14 @@ export class TestListComponent implements OnInit {
   }
 
   async listarModulos() {
+    console.info("listarModulos");
     this.moduleId = await this.route.snapshot.params.moduleId;
     this.tests = this.questionServices.getTestsByModuleId(this.moduleId);
-
-    this.tests.forEach(element => {})
+    console.info("las imgs");
+    console.log(this.tests);
+    this.tests.forEach(element => {
+      console.log(element);
+    });
 
   }
 

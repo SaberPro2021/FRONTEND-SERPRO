@@ -209,15 +209,15 @@
                                         <tbody>
                                                 <tr>
                                                         <td>questionServices</td>
-                                                  
+
                                                         <td>
                                                                         <code><a href="../injectables/QuestionsService.html" target="_self" >QuestionsService</a></code>
                                                         </td>
-                                                  
+
                                                     <td>
                                                             No
                                                     </td>
-                                                    
+
                                                 </tr>
                                         </tbody>
                                     </table>
@@ -233,7 +233,7 @@
 
 
     <section>
-    
+
     <h3 id="methods">
         Methods
     </h3>
@@ -315,7 +315,7 @@
     </table>
 </section>
     <section>
-    
+
     <h3 id="inputs">
         Properties
     </h3>
@@ -485,7 +485,7 @@ export class IcfesModulesListComponent implements OnInit {
     this.modules &#x3D; this.questionServices.getAllModules();
   }
 
-  
+
 
 }
 </code></pre>
@@ -495,7 +495,7 @@ export class IcfesModulesListComponent implements OnInit {
         <pre class="line-numbers"><code class="language-html">&lt;app-header title&#x3D;{{msgHeader}}&gt;&lt;/app-header&gt;
 
 &lt;mat-toolbar color&#x3D;&quot;primary&quot;&gt;
-  &lt;mat-toolbar-row style&#x3D;&quot;justify-content: center;&quot;&gt;    
+  &lt;mat-toolbar-row style&#x3D;&quot;justify-content: center;&quot;&gt;
     &lt;span&gt; LISTA DE MODULOS &lt;/span&gt;
   &lt;/mat-toolbar-row&gt;
 &lt;/mat-toolbar&gt;
@@ -525,10 +525,10 @@ export class IcfesModulesListComponent implements OnInit {
      &lt;h4&gt;{{module.knowledgeArea}}&lt;/h4&gt;
      &lt;p&gt;{{ module.description }}&lt;/p&gt;
      &lt;a [routerLink]&#x3D;&quot;&#x27;/listaTests/&#x27; + module._id&quot;&gt;Tomar Modulo&lt;/a&gt;
-     &lt;!-- &lt;mat-card-actions style&#x3D;&quot;text-align: center;&quot;&gt;            
+     &lt;!-- &lt;mat-card-actions style&#x3D;&quot;text-align: center;&quot;&gt;
       &lt;button  mat-raised-button color&#x3D;&quot;primary&quot; [routerLink]&#x3D;&quot;&#x27;/listaTests/&#x27; + module._id&quot;&gt;Abrir&lt;/button&gt;
     &lt;/mat-card-actions&gt; --&gt;
-   &lt;/div&gt;   
+   &lt;/div&gt;
  &lt;/div&gt;
 
 
@@ -553,13 +553,13 @@ export class IcfesModulesListComponent implements OnInit {
           &lt;div mat-card-avatar class&#x3D;&quot;example-header-image&quot; [ngStyle]&#x3D;&quot;{&#x27;background-image&#x27;: &#x27;url(./assets/images/default-module-img.png)&#x27;,&#x27;background-size&#x27;: &#x27;cover&#x27;}&quot; &gt;
           &lt;/div&gt;
           &lt;mat-card-title&gt;{{module.knowledgeArea}}&lt;/mat-card-title&gt;
-        &lt;/mat-card-header&gt;          
+        &lt;/mat-card-header&gt;
         &lt;mat-card-content&gt;
           &lt;p&gt;
             {{ module.description }}
           &lt;/p&gt;
         &lt;/mat-card-content&gt;
-        &lt;mat-card-actions style&#x3D;&quot;text-align: right;&quot;&gt;            
+        &lt;mat-card-actions style&#x3D;&quot;text-align: right;&quot;&gt;
           &lt;button  mat-raised-button color&#x3D;&quot;primary&quot; [routerLink]&#x3D;&quot;&#x27;/listaTests/&#x27; + module._id&quot;&gt;Abrir&lt;/button&gt;
         &lt;/mat-card-actions&gt;
       &lt;/mat-card&gt;
@@ -594,7 +594,7 @@ export class IcfesModulesListComponent implements OnInit {
 
 .container .card{
     width: 330px;
-    height: 430px;
+    height: 500px;
     border-radius: 8px;
     box-shadow: 0 2px 2px rgba(0,0,0,0.2);
     overflow: hidden;
@@ -647,7 +647,7 @@ export class IcfesModulesListComponent implements OnInit {
         </div>
     </div>
 
-    
+
 </div>
 
 <script src="../js/libs/vis.min.js"></script>
