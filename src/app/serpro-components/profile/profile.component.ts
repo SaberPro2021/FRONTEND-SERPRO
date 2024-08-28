@@ -103,7 +103,7 @@ export class ProfileComponent implements OnInit, AfterViewInit {
           this.gradeService.getScoreByModule(this.email).subscribe((data: any) => {
             for (let index = 0; index < data.length; index++) {
               if (data[index]._id == dataM[i]._id) {
-                this.dataAcum.set(dataM[i]._id, [data[index].sum / data[index].count]);
+                this.dataAcum.set(dataM[i]._id, [(data[index].sum / data[index].count).toFixed(0)]);
               }
             }
           });
