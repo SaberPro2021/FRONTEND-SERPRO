@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 // PROJECT COMPONENTS
 import { AppRoutingModule } from './app-routing.module';
@@ -46,8 +46,7 @@ import { AuthguardService } from './services/authguard.service';
 import { DynamicChildLoaderDirective } from './services/dynamic-child-loader.directive';
 import { GaugeComponent } from './serpro-components/profile/gauge/gauge.component'
 
-@NgModule({
-    declarations: [
+@NgModule({ declarations: [
         AppComponent,
         IcfesModulesListComponent,
         TestListComponent,
@@ -62,8 +61,7 @@ import { GaugeComponent } from './serpro-components/profile/gauge/gauge.componen
         DynamicChildLoaderDirective,
         GaugeComponent
     ],
-    imports: [
-        BrowserModule,
+    bootstrap: [AppComponent], imports: [BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
         MatListModule,
@@ -73,7 +71,6 @@ import { GaugeComponent } from './serpro-components/profile/gauge/gauge.componen
         MatRadioModule,
         FormsModule,
         RouterModule,
-        HttpClientModule,
         MatProgressSpinnerModule,
         MatTabsModule,
         MatToolbarModule,
@@ -83,10 +80,6 @@ import { GaugeComponent } from './serpro-components/profile/gauge/gauge.componen
         NgCircleProgressModule.forRoot(),
         NgxEchartsModule.forRoot({
             echarts
-        })
-    ],
-    providers: [QuestionsService, AuthguardService],
-    bootstrap: [AppComponent]
-})
+        })], providers: [QuestionsService, AuthguardService, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
 //
