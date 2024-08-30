@@ -47,47 +47,46 @@ import { DynamicChildLoaderDirective } from './services/dynamic-child-loader.dir
 import { GaugeComponent } from './serpro-components/profile/gauge/gauge.component'
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    IcfesModulesListComponent,
-    TestListComponent,
-    IcfesTestComponent,
-    MultipleSelectionQuestionComponent,
-    HeaderComponent,
-    SummaryTestComponent,
-    LoginComponent,
-    ProfileComponent,
-    TimerComponent,
-    HomeIndexComponent,
-    DynamicChildLoaderDirective,
-    GaugeComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MatListModule,
-    MatCardModule,
-    MatButtonModule,
-    MatProgressBarModule,
-    MatRadioModule,
-    FormsModule,
-    RouterModule,
-    HttpClientModule,
-    MatProgressSpinnerModule,
-    MatTabsModule,
-    MatToolbarModule,
-    MatIconModule,
-    NgbModule,
-    ToastrModule.forRoot(),
-    NgCircleProgressModule.forRoot(),
-    NgxEchartsModule.forRoot({
-      echarts
-    })
-  ],
-  providers: [QuestionsService, AuthguardService], 
-  entryComponents: [GaugeComponent],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        IcfesModulesListComponent,
+        TestListComponent,
+        IcfesTestComponent,
+        MultipleSelectionQuestionComponent,
+        HeaderComponent,
+        SummaryTestComponent,
+        LoginComponent,
+        ProfileComponent,
+        TimerComponent,
+        HomeIndexComponent,
+        DynamicChildLoaderDirective,
+        GaugeComponent
+    ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MatListModule,
+        MatCardModule,
+        MatButtonModule,
+        MatProgressBarModule,
+        MatRadioModule,
+        FormsModule,
+        RouterModule,
+        HttpClientModule,
+        MatProgressSpinnerModule,
+        MatTabsModule,
+        MatToolbarModule,
+        MatIconModule,
+        NgbModule,
+        ToastrModule.forRoot(),
+        NgCircleProgressModule.forRoot(),
+        NgxEchartsModule.forRoot({
+            echarts
+        })
+    ],
+    providers: [QuestionsService, AuthguardService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
 //
