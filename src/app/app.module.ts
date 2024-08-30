@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {MatLegacyListModule as MatListModule} from '@angular/material/legacy-list';
+import {MatListModule as MatListModule} from '@angular/material/list';
 
 import { RouterModule } from '@angular/router';
 import { IcfesModulesListComponent } from './serpro-components/icfes-modules-list/icfes-modules-list.component';
@@ -17,12 +17,12 @@ import { IcfesTestComponent } from './serpro-components/modules-test/icfes-test/
 import { MultipleSelectionQuestionComponent } from './serpro-components/modules-test/questions/multiple-selection-question/multiple-selection-question.component';
 
 // MATERIAL COMPONENTS
-import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
-import { MatLegacyProgressBarModule as MatProgressBarModule } from '@angular/material/legacy-progress-bar';
-import { MatLegacyRadioModule as MatRadioModule } from '@angular/material/legacy-radio';
-import { MatLegacyProgressSpinnerModule as MatProgressSpinnerModule } from '@angular/material/legacy-progress-spinner';
-import { MatLegacyTabsModule as MatTabsModule } from '@angular/material/legacy-tabs';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { ToastrModule } from 'ngx-toastr';
@@ -61,25 +61,27 @@ import { GaugeComponent } from './serpro-components/profile/gauge/gauge.componen
         DynamicChildLoaderDirective,
         GaugeComponent
     ],
-    bootstrap: [AppComponent], imports: [BrowserModule,
+    bootstrap: [AppComponent], 
+    imports: [BrowserModule,
         AppRoutingModule,
         BrowserAnimationsModule,
+        FormsModule,
+        RouterModule,
         MatListModule,
         MatCardModule,
         MatButtonModule,
         MatProgressBarModule,
         MatRadioModule,
-        FormsModule,
-        RouterModule,
         MatProgressSpinnerModule,
         MatTabsModule,
         MatToolbarModule,
         MatIconModule,
-        NgbModule,
         ToastrModule.forRoot(),
+        NgbModule,
         NgCircleProgressModule.forRoot(),
         NgxEchartsModule.forRoot({
             echarts
-        })], providers: [QuestionsService, AuthguardService, provideHttpClient(withInterceptorsFromDi())] })
+        })],
+        providers: [QuestionsService, AuthguardService, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
 //

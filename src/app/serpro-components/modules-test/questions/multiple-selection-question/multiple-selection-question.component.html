@@ -1,6 +1,7 @@
 
 <br>
 <mat-card 
+  appearance="outlined" 
   [ngClass]="{
     'greenCard': question.earnedPoints == 100 && isEditable === false,
     'yellowCard': question.earnedPoints < 100 && question.earnedPoints > 0 && isEditable === false,
