@@ -3,10 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: true,
+  production: false,
   urlQuestionApi: window["env"]["apiUrl"] || "default",
   qtyRamdomQuestions: 10,
-  msgGralApp: 'Bienvenido a SaberPro',
+  msgGralApp: 'Bienvenido a SaberPro (dev)',
   msgHeader: '',
   maxTestsDrawProfile: 10
 };

@@ -38,10 +38,16 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": true,
+              "optimization": {
+                  "scripts": true,
+                  "styles": {
+                      "minify": true,
+                      "inlineCritical": false
+                  }
+              },
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
+              
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -64,19 +70,19 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "APPSerPro:build",
+            "buildTarget": "APPSerPro:build",
             "proxyConfig": "src/proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "APPSerPro:build:production"
+              "buildTarget": "APPSerPro:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "APPSerPro:build"
+            "buildTarget": "APPSerPro:build"
           }
         },
         "test": {
