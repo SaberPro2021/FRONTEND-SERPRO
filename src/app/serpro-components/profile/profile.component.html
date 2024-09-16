@@ -29,7 +29,7 @@
             </td>
 
             <td>
-                <div echarts [options]="gauges[ind].chartOptions"></div>
+              <div *ngIf="gauges[ind]!=undefined" echarts [options]="gauges[ind].chartOptions"></div>
             </td>
             
           </tr>        
