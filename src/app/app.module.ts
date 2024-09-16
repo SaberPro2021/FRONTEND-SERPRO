@@ -80,7 +80,7 @@ import { GaugeComponent } from './serpro-components/profile/gauge/gauge.componen
         NgbModule,
         NgCircleProgressModule.forRoot(),
         NgxEchartsModule.forRoot({
-            echarts
+            echarts: () => import('echarts'),
         })],
         providers: [QuestionsService, AuthguardService, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

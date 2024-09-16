@@ -13,7 +13,7 @@
         </thead>
         <tbody>
 
-          <tr *ngFor="let item of matrixModuleTest; let ind=index">
+          <tr *ngFor="let item of matrixModuleTest let ind=index">
 
             <td>{{matrixDescriptionModuleTest[ind][0]}}</td>
 
@@ -28,9 +28,11 @@
               </div>
             </td>
 
-            <td><ng-template dynamicChildLoader></ng-template></td>
-
-          </tr>
+            <td>
+                <div echarts [options]="gauges[ind].chartOptions"></div>
+            </td>
+            
+          </tr>        
 
         </tbody>
 
