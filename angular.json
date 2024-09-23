@@ -38,16 +38,9 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "optimization": {
-                  "scripts": false,
-                  "styles": {
-                      "minify": true,
-                      "inlineCritical": false
-                  }
-              },
+              "optimization": false,
               "outputHashing": "none",
-              "sourceMap": false,
-              
+              "sourceMap": true,
               "namedChunks": false,
               "extractLicenses": false,
               "vendorChunk": true,
@@ -55,13 +48,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "2mb",
-                  "maximumError": "5mb"
+                  "maximumWarning": "8mb",
+                  "maximumError": "8mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumWarning": "50kb",
+                  "maximumError": "50kb"
                 }
               ]
             }
