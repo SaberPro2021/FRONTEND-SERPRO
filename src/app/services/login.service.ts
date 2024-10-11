@@ -19,9 +19,9 @@ export class LoginService {
   }
 
   postLogin(loginModule: LoginModel) {
-
-    return this.http.post(`${environment.urlQuestionApi}/login`, loginModule,{
-      withCredentials: true 
+    loginModule.password = btoa(loginModule.password)
+    return this.http.post(`${environment.urlQuestionApi}/login`,  loginModule,
+      {withCredentials: true 
     }).subscribe(
        (response) => {
           sessionStorage.setItem('userNameSession',response['userName'])
