@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
   tests: IcfesTest[];
   resultCount: number;
   matrixModuleTest: Map<string,any[]> = new Map();
-  matrixDescriptionModuleTest: any[] = [];
+  matrixDescriptionModuleTest: Map<string,any[]> = new Map();
   arrayModulesSession: string[] = [];
   arrayTestsSession: string[] = [];
   dataAcum: Map<string, any> = new Map();
@@ -92,7 +92,7 @@ export class ProfileComponent implements OnInit {
               arrayTests.push(-1)
 
             this.matrixModuleTest.set(this.modules[i]._id, arrayTests);
-            this.matrixDescriptionModuleTest.push(arrayTestsDesc);
+            this.matrixDescriptionModuleTest.set(this.modules[i]._id, arrayTestsDesc);
               }
           }).unsubscribe
 

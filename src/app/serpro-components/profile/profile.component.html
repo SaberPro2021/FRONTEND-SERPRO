@@ -1,5 +1,6 @@
 <app-header title={{msgHeader}}></app-header>
 
+
 <div class="row justify-content-center">
   <div class="col-lg-9">
     <div >
@@ -17,11 +18,11 @@
 
           <tr *ngFor="let item of matrixModuleTest | keyvalue let ind=index">
             
-            <td>{{matrixDescriptionModuleTest[ind][0]}}</td>
+            <td>{{matrixDescriptionModuleTest.get(item.key)[0]}}</td>
 
             <td *ngFor="let star of item.value | slice:1; let indice=index">
 
-              <div [ngSwitch]="star" ngbTooltip={{matrixDescriptionModuleTest[ind][indice+1]}}>
+              <div [ngSwitch]="star" ngbTooltip={{matrixDescriptionModuleTest.get(item.key)[indice+1]}}>
 
                 <img *ngSwitchCase="0" src="../../../../assets/images/star-0.png">
                 <img *ngSwitchCase="1" src="../../../../assets/images/star-1.png">
@@ -44,4 +45,5 @@
     </div>
   </div>
 </div>
+
 
