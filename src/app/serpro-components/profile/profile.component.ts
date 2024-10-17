@@ -23,14 +23,14 @@ export class ProfileComponent implements OnInit {
   modules: IcfesModule[];
   tests: IcfesTest[];
   resultCount: number;
-  matrixModuleTest: any[] = [];
+  matrixModuleTest: Map<string,any[]> = new Map();
   matrixDescriptionModuleTest: any[] = [];
   arrayModulesSession: string[] = [];
   arrayTestsSession: string[] = [];
   dataAcum: Map<string, any> = new Map();
   grades: any[] = [];
 
-  gauges: Array<GaugeComponent> = new Array();
+  gauges: Map<string,GaugeComponent> = new Map();
   myGauge: GaugeComponent;
 
   constructor(
@@ -91,7 +91,7 @@ export class ProfileComponent implements OnInit {
                     index++)
               arrayTests.push(-1)
 
-            this.matrixModuleTest.push(arrayTests);
+            this.matrixModuleTest.set(this.modules[i]._id, arrayTests);
             this.matrixDescriptionModuleTest.push(arrayTestsDesc);
               }
           }).unsubscribe
@@ -108,8 +108,8 @@ export class ProfileComponent implements OnInit {
             this.myGauge =new GaugeComponent();           
             this.myGauge.chartOptions.series[0].data = 
               this.dataAcum.get(this.modules[i]._id)
-            this.gauges.push(this.myGauge)
-            console.log(this.gauges)  
+            this.gauges.set(this.modules[i]._id, this.myGauge)
+            console.log('*****',this.gauges,'//',this.matrixModuleTest)  
             
           }).unsubscribe
 

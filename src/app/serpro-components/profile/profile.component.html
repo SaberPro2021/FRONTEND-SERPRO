@@ -9,15 +9,17 @@
           <tr>
             <th>MÓDULO</th>
             <th>TESTS</th>
+        
           </tr>
         </thead>
+        
         <tbody>
 
-          <tr *ngFor="let item of matrixModuleTest let ind=index">
-
+          <tr *ngFor="let item of matrixModuleTest | keyvalue let ind=index">
+            
             <td>{{matrixDescriptionModuleTest[ind][0]}}</td>
 
-            <td *ngFor="let star of item | slice:1; let indice=index">
+            <td *ngFor="let star of item.value | slice:1; let indice=index">
 
               <div [ngSwitch]="star" ngbTooltip={{matrixDescriptionModuleTest[ind][indice+1]}}>
 
@@ -27,9 +29,10 @@
 
               </div>
             </td>
-
-            <td>
-              <div *ngIf="gauges[ind]!=undefined" echarts [options]="gauges[ind].chartOptions"></div>
+            
+            <td style="width: 200px; height: 200px;" 
+              *ngIf="gauges.get(item.key)!=undefined" 
+                      echarts [options]="gauges.get(item.key).chartOptions">
             </td>
             
           </tr>        
